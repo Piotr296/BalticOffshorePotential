@@ -6,7 +6,7 @@ Offshore Wind Farm Localizator
 
 Please use Github Desktop to establish connection between your Python/Javascript/HTML code and our Github repository
 
-# Work organistation
+# Work organisation
 
 Please create a separate folder for every new script. We should commit our code after each major change
 
