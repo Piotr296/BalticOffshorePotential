@@ -15,7 +15,8 @@ Please create a separate folder for every new script. We should commit our code 
 During coding please use the PEP 8 (https://www.python.org/dev/peps/pep-0008/) style guide.
 
 For instance function/variable names should looks as below:
-  vector_to_raster(vector, other_stuff):
+
+vector_to_raster(vector, other_stuff):
 
 
 
