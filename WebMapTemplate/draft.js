@@ -1,8 +1,26 @@
+
+var grid = new ol.layer.Vector({
+  title: 'Grid',
+  source: new ol.source.Vector({
+    format: new ol.format.GeoJSON(),
+    url: 'grid.geojson',
+  }),
+  style: new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'rgba(255, 120, 0, 0.8)',
+      width: 3
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgba(255, 120, 0, 0.1)'
+    })
+  })
+});
+
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
-  })
-  // here we will add the var layer that we create
+  }),
+  grid
 ]
 
 
