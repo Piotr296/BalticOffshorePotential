@@ -65,3 +65,7 @@ output3.innerHTML = slider3.value;
 slider3.oninput = function() {
   output3.innerHTML = this.value;
 }
+
+function commitWeightFunction() {
+  console.log(slider1.value, slider2.value, slider3.value)
+        }
