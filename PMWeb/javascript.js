@@ -1,19 +1,45 @@
+var classification = function (feature, resolution){
+  const fuzzyvalue = feature.get('fuzzyvalue')
+  var layercolor
+  if (fuzzyvalue < 0.2) {
+  layercolor='rgb(0, 255, 0)';
+  }
+  else if (fuzzyvalue < 0.4) {
+  layercolor='rgb(148, 255, 155)';
+  }
+  else if (fuzzyvalue < 0.6) {
+  layercolor='rgb(255, 148, 148)';
+  }
+  else if (fuzzyvalue < 0.8) {
+  layercolor='rgb(212, 94, 94)';
+  }
+  else if (fuzzyvalue < 1) {
+  layercolor='rgb(255, 0, 0)';
+  }
+  else {
+  }
+  return new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'rgba(0, 0, 0, 0.8)',
+      width: 1
+    }),
+    fill: new ol.style.Fill({
+      color: layercolor
+    })
+  })
+};
+
+
 var grid = new ol.layer.Vector({
   title: 'Grid',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'grid.geojson',
   }),
-  style: new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(255, 120, 0, 0.8)',
-      width: 1
-    }),
-    fill: new ol.style.Fill({
-      color: 'rgba(255, 120, 0, 0.1)'
-    })
-  })
+  style: classification
 });
+
+
 
 var layers = [
   new ol.layer.Tile({
