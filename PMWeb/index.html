@@ -21,17 +21,13 @@
 
     <!-- Import fonts  -->
     <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet' type='text/css'>
-    <script src="nunjucks.js"></script>
 
     <title>Offshore Wind Turbines Localizator</title>
   </head>
 
   <body>
-    {% include "./header_top.html" %}
-    {% block content %}{% endblock %}
-
-
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="{{ url_for('index') }}">Map</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,16 +42,18 @@
           </li>
 
     	    <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('contact) }}">Contact<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('statistics') }}">Statistics<span class="sr-only">(current)</span></a>
           </li>
 
         </ul>
       </div>
-    </nav> -->
+    </nav>
 
+    <!-- Divide page -->
     <div class="container-fluid" style="margin-top:10px">
       <div class="row">
 
+        <!-- Map -->
         <div class="col-9">
             <div id="map" class="map"></div>
             <div id="popup" class="ol-popup">
@@ -64,7 +62,8 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <!-- Sliders -->
+        <div class="col-3" align='center'>
           <div class="slidecontainer">
             <p align='center'><b>Bathymetry</b></p>
             <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
@@ -80,10 +79,10 @@
           </div>
           <button type="button" onclick="commitWeightFunction()">Click Me!</button>
         </div>
-
       </div>
     <script src="javascript.js"></script>
     </div>
+
   </body>
 
 </html>

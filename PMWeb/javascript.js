@@ -40,7 +40,6 @@ var grid = new ol.layer.Vector({
 });
 
 
-
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
@@ -66,6 +65,7 @@ var map = new ol.Map({
 });
 
 map.addControl(new ol.control.LayerSwitcher());
+
 
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
