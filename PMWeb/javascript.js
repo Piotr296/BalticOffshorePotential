@@ -93,5 +93,64 @@ sliderWind.oninput = function() {
 }
 
 function commitWeightFunction() {
-  console.log(sliderBath.value/10, sliderShip.value/10, sliderWind.value/10)
+  var
+  sliderBathWeight = sliderBath.value/10
+  sliderShipWeight = sliderShip.value/10
+  sliderWindWeight = sliderWind.value/10
+  console.log(sliderBathWeight, sliderShipWeight, sliderWindWeight)
         }
+
+// Popup
+var
+    container = document.getElementById('popup'),
+    content_element = document.getElementById('popup-content'),
+    closer = document.getElementById('popup-closer');
+
+closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+};
+var overlay = new ol.Overlay({
+    element: container,
+    autoPan: true,
+    offset: [0, -10]
+});
+
+map.addOverlay(overlay);
+
+map.on('click', function(evt){
+    var feature = map.forEachFeatureAtPixel(evt.pixel,
+      function(feature, layer) {
+        // Work only if the click on the grid layer
+        if (layer == grid) {
+        return feature;
+        }
+    });
+    if (feature) {
+        // FOTIS sth is wrong here, idk why. The coordinates which our js takes are stupid. Could you check it?
+        var geometry = feature.getGeometry();
+        var coord = geometry.getCoordinates();
+        // Show us the propertis of the feature
+        var content = '<p>' + 'Fuzzy Value: ' + feature.get('fuzzyvalue') + '</p>';
+
+        content_element.innerHTML = content;
+        overlay.setPosition(coord);
+
+        console.info(feature.getProperties());
+    }
+});
+
+map.on('pointermove', function(e) {
+  if (e.dragging) return;
+
+  var pixel = e.map.getEventPixel(e.originalEvent);
+  var hit = false;
+  e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+    if (layer === grid) {
+          hit = true;
+     }
+  });
+
+  e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+});
