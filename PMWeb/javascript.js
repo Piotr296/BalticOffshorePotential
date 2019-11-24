@@ -42,30 +42,30 @@ var map = new ol.Map({
 map.addControl(new ol.control.LayerSwitcher());
 
 // Range Sliders
-var slider1 = document.getElementById("myRange1");
-var output1 = document.getElementById("demo1");
-output1.innerHTML = slider1.value;
+var sliderBath = document.getElementById("rangeBath");
+var outputBath = document.getElementById("outBath");
+outputBath.innerHTML = sliderBath.value/10;
 
-slider1.oninput = function() {
-  output1.innerHTML = this.value;
+sliderBath.oninput = function() {
+  outputBath.innerHTML = this.value/10;
 }
 
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("demo2");
-output2.innerHTML = slider2.value;
+var sliderShip = document.getElementById("rangeShip");
+var outputShip = document.getElementById("outShip");
+outputShip.innerHTML = sliderShip.value/10;
 
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
+sliderShip.oninput = function() {
+  outputShip.innerHTML = this.value/10;
 }
 
-var slider3 = document.getElementById("myRange3");
-var output3 = document.getElementById("demo3");
-output3.innerHTML = slider3.value;
+var sliderWind = document.getElementById("rangeWind");
+var outputWind = document.getElementById("outWind");
+outputWind.innerHTML = sliderWind.value/10;
 
-slider3.oninput = function() {
-  output3.innerHTML = this.value;
+sliderWind.oninput = function() {
+  outputWind.innerHTML = this.value/10;
 }
 
 function commitWeightFunction() {
-  console.log(slider1.value, slider2.value, slider3.value)
+  console.log(sliderBath.value/10, sliderShip.value/10, sliderWind.value/10)
         }

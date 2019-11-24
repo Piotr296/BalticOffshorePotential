@@ -32,14 +32,17 @@
 
         <div class="col-3">
           <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
-            <p>Value: <span id="demo1"></span></p>
+            <p align='center'><b>Bathymetry</b></p>
+            <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
+            <p>Bathymetry weight: <span id="outBath"></span></p>
 
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
-            <p>Value: <span id="demo2"></span></p>
+            <p align='center'><b>Shipping</b></p>
+            <input type="range" min="0" max="10" value="5" class="slider" id="rangeShip">
+            <p>Shipping weight: <span id="outShip"></span></p>
 
-            <input type="range" min="1" max="100" value="50" class="slider" id="myRange3">
-            <p>Value: <span id="demo3"></span></p>
+            <p align='center'><b>Wind Speed</b></p>
+            <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
+            <p>Wind Speed weight: <span id="outWind"></span></p>
           </div>
           <button type="button" onclick="commitWeightFunction()">Click Me!</button>
         </div>
