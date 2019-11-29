@@ -20,8 +20,8 @@ var classification = function (feature, resolution){
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: 'rgba(0, 0, 0, 1)',
-      width: 0.1
+      color: 'rgba(0, 0, 0, 0.8)',
+      width: 1
     }),
     fill: new ol.style.Fill({
       color: layercolor
@@ -58,7 +58,7 @@ var map = new ol.Map({
   ]),
   target: 'map',
   layers: layers,
-  view: new ol.View({
+  view: new ol.View({ // change the center to Cologne
     center: ol.proj.fromLonLat([20.064049, 59.954122]),
     zoom: 5
   })
@@ -128,16 +128,16 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
+        // FOTIS sth is wrong here, idk why. The coordinates which our js takes are stupid. Could you check it?
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the propertis of the feature
         var content = '<p>' + 'Fuzzy Value: ' + feature.get('fuzzyvalue') + '</p>';
 
         content_element.innerHTML = content;
-        overlay.setPositioning(coord);
+        overlay.setPosition(coord);
 
         console.info(feature.getProperties());
-        console.log(coord)
     }
 });
 
