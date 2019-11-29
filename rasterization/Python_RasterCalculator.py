@@ -34,8 +34,7 @@ def raster_calculation(raster_list, weight_list):
     
     """
     
-    assert len(raster_list) == len(weight_list) "Both list should have the same length!"
-	assert sum(weight_list) == 1
+    assert len(raster_list) == len(weight_list), "Both list should have the same length!"
     
     result_map = 0
     
