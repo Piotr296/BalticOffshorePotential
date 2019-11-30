@@ -102,7 +102,6 @@ function commitWeightFunction() {
   	{ "wS": sliderShip.value/10 },
   	{ "wW": sliderWind.value/10 }
   ];
-  console.log(weights)
   // Send POST request to receiver endpoint
 	$.post("receiver", JSON.stringify(weights), function(){});
 	// Stop link reloading the page
