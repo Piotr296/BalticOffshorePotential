@@ -29,12 +29,13 @@ var classification = function (feature, resolution){
   })
 };
 
+//TODO - add new geojson layer (Fotis)
 
 var grid = new ol.layer.Vector({
   title: 'Grid',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'grid.geojson',
+    url: 'static/grid.geojson',
   }),
   style: classification
 });
@@ -58,7 +59,7 @@ var map = new ol.Map({
   ]),
   target: 'map',
   layers: layers,
-  view: new ol.View({ // change the center to Cologne
+  view: new ol.View({
     center: ol.proj.fromLonLat([20.064049, 59.954122]),
     zoom: 5
   })
@@ -92,13 +93,21 @@ sliderWind.oninput = function() {
   outputWind.innerHTML = this.value/10;
 }
 
+// TODO - create the one-sum assert (Fotis)
+
 function commitWeightFunction() {
-  var
-  sliderBathWeight = sliderBath.value/10
-  sliderShipWeight = sliderShip.value/10
-  sliderWindWeight = sliderWind.value/10
-  console.log(sliderBathWeight, sliderShipWeight, sliderWindWeight)
-        }
+  // Create a JSON object
+  var weights = [
+  	{ "wB": sliderBath.value/10 },
+  	{ "wS": sliderShip.value/10 },
+  	{ "wW": sliderWind.value/10 }
+  ];
+  console.log(weights)
+  // Send POST request to receiver endpoint
+	$.post("receiver", JSON.stringify(weights), function(){});
+	// Stop link reloading the page
+ event.preventDefault();
+}
 
 // Popup
 var
@@ -128,7 +137,7 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
-        // FOTIS sth is wrong here, idk why. The coordinates which our js takes are stupid. Could you check it?
+        // TODO - repair the pop-ups (Fotis)
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the propertis of the feature
