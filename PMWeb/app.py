@@ -15,7 +15,6 @@ def worker():
     wB = data[0]['wB']
     wS = data[1]['wS']
     wW = data[2]['wW']
-
     conn = psycopg2.connect("dbname='Baltic_project' \
                              host='localhost' \
                              user='postgres' \
@@ -54,7 +53,7 @@ def worker():
     cur.close()
     conn.close()
 
-    print(output)
+    # print(output)
     return jsonify(output)
 
 if __name__ == "__main__":

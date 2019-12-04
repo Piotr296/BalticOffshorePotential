@@ -71,8 +71,9 @@ map.addControl(new ol.control.LayerSwitcher());
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
 var outputBath = document.getElementById("outBath");
-outputBath.innerHTML = sliderBath.value/10;
+outputBath.innerHTML = sliderBath.value/10; // Display the default slider value
 
+// Update the current slider value (each time you drag the slider handle)
 sliderBath.oninput = function() {
   outputBath.innerHTML = this.value/10;
 }
@@ -96,16 +97,20 @@ sliderWind.oninput = function() {
 // TODO - create the one-sum assert (Fotis)
 
 function commitWeightFunction() {
-  // Create a JSON object
-  var weights = [
-  	{ "wB": sliderBath.value/10 },
-  	{ "wS": sliderShip.value/10 },
-  	{ "wW": sliderWind.value/10 }
-  ];
-  // Send POST request to receiver endpoint
-	$.post("receiver", JSON.stringify(weights), function(){});
-	// Stop link reloading the page
- event.preventDefault();
+  if (sliderBath.value/10 + sliderShip.value/10 + sliderWind.value/10 == 1){
+    // Create a JSON object
+    var weights = [
+      { "wB": sliderBath.value/10 },
+      { "wS": sliderShip.value/10 },
+      { "wW": sliderWind.value/10 }
+    ];
+    // Send POST request to receiver endpoint
+    $.post("receiver", JSON.stringify(weights), function(){}); //Just in case keep the function()
+    // Stop link reloading the page
+   event.preventDefault();
+  } else {
+    alert("The weights are not equal to one!");
+  }
 }
 
 // Popup
