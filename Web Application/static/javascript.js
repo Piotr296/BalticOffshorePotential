@@ -16,7 +16,7 @@ var classification = function (feature, resolution){
   else if (fuzzyvalue < 1) {
   layercolor='rgb(255, 0, 0)';
   }
-  else {
+  else { layercolor='rgb(255, 255, 255)';
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
@@ -35,7 +35,7 @@ var grid = new ol.layer.Vector({
   title: 'Grid',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'static/grid.geojson',
+    url: 'static/output.geojson',
   }),
   style: classification
 });
