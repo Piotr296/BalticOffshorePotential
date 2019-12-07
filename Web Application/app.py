@@ -8,6 +8,14 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/statistics")
+def statistics():
+    return render_template("statistics.html")
+
 @app.route('/receiver', methods = ['POST'])
 def worker():
     print("Sending POST request")
@@ -18,7 +26,9 @@ def worker():
     conn = psycopg2.connect("dbname='Baltic_project' \
                              host='localhost' \
                              user='postgres' \
-                             password='postgres'")
+                             password='1Michalak123'")
+
+    # Piotr & Olga have data base without changed database - minor problem
 
     cur = conn.cursor()
     cur.execute("""UPDATE grid_data
@@ -56,7 +66,7 @@ def worker():
     #print(output)
 
     #create an empty geojson file and overwrite it with the output
-    f = open(r"C:\Users\apatsi19\Desktop\PROJECT\Web Application\static\output.geojson", "w+")
+    f = open(r"D:\Moje_dokumenty\Study_in_Denmark\Study_Programme\Study Project\Application\OffshoreLocalizer\Web Application\static\output.geojson", "w+")
     f.write(output)
     f.close()
 

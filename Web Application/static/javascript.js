@@ -32,7 +32,7 @@ var classification = function (feature, resolution){
 //TODO - add new geojson layer (Fotis)
 
 var grid = new ol.layer.Vector({
-  title: 'Grid',
+  title: 'Sustainability',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/output.geojson',
@@ -108,7 +108,7 @@ function commitWeightFunction() {
     $.post("receiver", JSON.stringify(weights), function(){
       location.reload()
     }); //Just in case keep the function()
-    
+
     //progress bar http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
     // or check https://loading.io/progress/
     $(document).ready(function(){

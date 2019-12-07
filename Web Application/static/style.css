@@ -92,8 +92,8 @@ body, html {
 
 /* progress bar */
 .progress {
-  width:100px;
-  height: 100%;
+  width: 150px;
+  height: 10px;
 }
 .progress-wrap {
   background: #dcdcdc;
@@ -107,5 +107,5 @@ body, html {
     left: 0;
     position: absolute;
     top: 0;
- width:0%;
+    width:0%;
 }
