@@ -1,4 +1,4 @@
-var classification = function (feature, resolution){
+var classification_sustainability = function (feature, resolution){
   const fuzzyvalue = feature.get('fuzzyvalue')
   var layercolor
   if (fuzzyvalue < 0.2) {
@@ -29,15 +29,53 @@ var classification = function (feature, resolution){
   })
 };
 
+var classification_LCoE = function (feature, resolution){
+  const cost = feature.get('EUR/MWh')
+  var layercolor
+  if (cost < 28) {
+  layercolor='rgb(255, 100, 0)';
+  }
+  else if (cost < 45) {
+  layercolor='rgb(125, 150, 0)';
+  }
+  else if (cost < 55) {
+  layercolor='rgb(0, 200, 0)';
+  }
+  else if (cost < 65) {
+  layercolor='rgb(0, 100, 0)';
+  }
+  else {
+  layercolor='rgb(0, 50, 0)';
+  }
+  return new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'rgba(0, 0, 0, 0)',
+      width: 0.1
+    }),
+    fill: new ol.style.Fill({
+      color: layercolor
+    })
+  })
+};
+
 //TODO - add new geojson layer (Fotis)
 
-var grid = new ol.layer.Vector({
+var sustainability = new ol.layer.Vector({
   title: 'Sustainability',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/output.geojson',
   }),
-  style: classification
+  style: classification_sustainability
+});
+
+var lcoe = new ol.layer.Vector({
+  title: 'LCoE',
+  source: new ol.source.Vector({
+    format: new ol.format.GeoJSON(),
+    url: 'static/LCoE.geojson',
+  }),
+  style: classification_LCoE
 });
 
 
@@ -45,7 +83,8 @@ var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  grid
+  sustainability,
+  lcoe
 ]
 
 
@@ -153,7 +192,7 @@ map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
         // Work only if the click on the grid layer
-        if (layer == grid) {
+        if (layer == sustainability) {
         return feature;
         }
     });
@@ -177,7 +216,7 @@ map.on('pointermove', function(e) {
   var pixel = e.map.getEventPixel(e.originalEvent);
   var hit = false;
   e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-    if (layer === grid) {
+    if (layer === sustainability) {
           hit = true;
      }
   });
