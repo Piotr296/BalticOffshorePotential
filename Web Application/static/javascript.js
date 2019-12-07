@@ -2,19 +2,19 @@ var classification = function (feature, resolution){
   const fuzzyvalue = feature.get('fuzzyvalue')
   var layercolor
   if (fuzzyvalue < 0.2) {
-  layercolor='rgb(0, 255, 0)';
+  layercolor='rgb(0, 100, 0)';
   }
   else if (fuzzyvalue < 0.4) {
-  layercolor='rgb(148, 255, 155)';
+  layercolor='rgb(0, 150, 0)';
   }
   else if (fuzzyvalue < 0.6) {
-  layercolor='rgb(255, 148, 148)';
+  layercolor='rgb(0, 200, 0)';
   }
   else if (fuzzyvalue < 0.8) {
-  layercolor='rgb(212, 94, 94)';
+  layercolor='rgb(133, 200, 0)';
   }
   else if (fuzzyvalue < 1) {
-  layercolor='rgb(255, 0, 0)';
+  layercolor='rgb(217, 200, 0)';
   }
   else { layercolor='rgb(255, 255, 255)';
   }
@@ -32,7 +32,7 @@ var classification = function (feature, resolution){
 //TODO - add new geojson layer (Fotis)
 
 var grid = new ol.layer.Vector({
-  title: 'Grid',
+  title: 'Sustainability',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/output.geojson',
@@ -108,7 +108,7 @@ function commitWeightFunction() {
     $.post("receiver", JSON.stringify(weights), function(){
       location.reload()
     }); //Just in case keep the function()
-    
+
     //progress bar http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
     // or check https://loading.io/progress/
     $(document).ready(function(){
