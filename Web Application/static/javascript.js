@@ -16,12 +16,12 @@ var classification = function (feature, resolution){
   else if (fuzzyvalue < 1) {
   layercolor='rgb(217, 200, 0)';
   }
-  else { layercolor='rgb(255, 255, 255)';
+  else { layercolor='#ABD3DF';
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: 'rgba(0, 0, 0, 0.8)',
-      width: 1
+      color: 'rgba(0, 0, 0, 0)',
+      width: 0.1
     }),
     fill: new ol.style.Fill({
       color: layercolor
