@@ -2,19 +2,19 @@ var classification = function (feature, resolution){
   const fuzzyvalue = feature.get('fuzzyvalue')
   var layercolor
   if (fuzzyvalue < 0.2) {
-  layercolor='rgb(0, 255, 0)';
+  layercolor='rgb(0, 100, 0)';
   }
   else if (fuzzyvalue < 0.4) {
-  layercolor='rgb(148, 255, 155)';
+  layercolor='rgb(0, 150, 0)';
   }
   else if (fuzzyvalue < 0.6) {
-  layercolor='rgb(255, 148, 148)';
+  layercolor='rgb(0, 200, 0)';
   }
   else if (fuzzyvalue < 0.8) {
-  layercolor='rgb(212, 94, 94)';
+  layercolor='rgb(133, 200, 0)';
   }
   else if (fuzzyvalue < 1) {
-  layercolor='rgb(255, 0, 0)';
+  layercolor='rgb(217, 200, 0)';
   }
   else { layercolor='rgb(255, 255, 255)';
   }
