@@ -105,7 +105,24 @@ function commitWeightFunction() {
       { "wW": sliderWind.value/10 }
     ];
     // Send POST request to receiver endpoint
-    $.post("receiver", JSON.stringify(weights), function(){}); //Just in case keep the function()
+    $.post("receiver", JSON.stringify(weights), function(){
+      location.reload()
+    }); //Just in case keep the function()
+    
+    //progress bar http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
+    // or check https://loading.io/progress/
+    $(document).ready(function(){
+     var progressSelector = $(".progress-wrap");
+     progressSelector.each(function(){
+     var getPercent = $(this).attr("data-progresspercent");
+     var getSpeed = parseInt($(this).attr("data-speed"));
+     var getColor = $(this).attr("data-color");
+     var getHeight = $(this).attr("data-height");
+     var getWidth = $(this).attr("data-width");
+     $(this).css({"height":getHeight,"width":getWidth});
+     $(this).find(".progress-bar").css({"background-color":"#"+getColor}).animate({ width:getPercent+'%' },getSpeed)
+     });
+    });
     // Stop link reloading the page
    event.preventDefault();
   } else {
