@@ -39,13 +39,12 @@ def worker():
 
     for row in rows:
 
-        output = output + '''{
+          output = output + '''{
           "type": "Feature",
           "properties": {
-              "id": '''+str(row[0])+''',
-              "fuzzyvalue": '''+str(row[1])+'''},
-          "geometry": '''+row[2]+'''
-        },'''
+              "id": %s ,
+              "fuzzyvalue": %s },
+          "geometry": %s },'''%(str(row[0]), str(row[1]), row[2])
 
 
     output = output[:-1] + """]
