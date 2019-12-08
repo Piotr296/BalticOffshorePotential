@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 body, html {
   height: 100%;
   width: 100%;
   margin: 0;
-  font-family: Arial;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .map {
@@ -35,15 +37,29 @@ body, html {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: #4CAF50;
+  background: #353942;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: #4CAF50;
+  background: #353942;
   cursor: pointer;
+}
+
+.sliders-title {
+  padding: 0;
+  margin:  0;
+}
+
+#commitButton {
+  background-color: #353942;
+  color: white;
+  border: none;
+  display: block;
+  margin: auto;
+  border-radius: 12px;
 }
 
 /* Popup */
@@ -97,13 +113,13 @@ body, html {
 }
 .progress-wrap {
   background: #dcdcdc;
-  margin: 20px 0;
+  margin: 20px auto;
   overflow: hidden;
   position: relative;
 
 }
 .progress-bar {
-    background:#249c23;
+    background: #353942;
     left: 0;
     position: absolute;
     top: 0;
