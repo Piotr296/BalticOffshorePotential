@@ -8,7 +8,7 @@ body, html {
 }
 
 .map {
-  height: 600px;
+  height: 560px;
   width: 100%;
 }
 
@@ -19,7 +19,7 @@ body, html {
 
 .slider {
   -webkit-appearance: none;
-  width: 250px;
+  width: 300px;
   height: 25px;
   background: #d3d3d3;
   outline: none;
@@ -51,15 +51,6 @@ body, html {
 .sliders-title {
   padding: 0;
   margin:  0;
-}
-
-#commitButton {
-  background-color: #353942;
-  color: white;
-  border: none;
-  display: block;
-  margin: auto;
-  border-radius: 12px;
 }
 
 /* Popup */
@@ -124,4 +115,17 @@ body, html {
     position: absolute;
     top: 0;
     width:0%;
+}
+
+#commitButton {
+  background-color: #353942;
+  color: white;
+  border: none;
+  display: block;
+  margin: auto;
+  border-radius: 12px;
+}
+
+#title1 {
+  text-align: center;
 }

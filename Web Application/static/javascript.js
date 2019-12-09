@@ -83,8 +83,8 @@ var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  sustainability,
-  lcoe
+  lcoe,
+  sustainability
 ]
 
 
