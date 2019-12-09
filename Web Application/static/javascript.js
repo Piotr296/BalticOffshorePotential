@@ -201,7 +201,7 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the propertis of the feature
-        var content = '<p>' + 'Fuzzy Value: ' + feature.get('fuzzyvalue') + '</p>';
+        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
 
         content_element.innerHTML = content;
         overlay.setPosition(coord);
