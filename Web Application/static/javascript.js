@@ -20,7 +20,7 @@ var classification_sustainability = function (feature, resolution){
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: 'rgba(0, 0, 0, 0)',
+      color: 'rgba(0, 0, 0, 1)',
       width: 0.1
     }),
     fill: new ol.style.Fill({
