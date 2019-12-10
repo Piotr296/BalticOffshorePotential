@@ -1,0 +1,16 @@
+Send repository to Carsten
+
+1) Padding on the maps - OLGA
+2) Interactive graphs (for Baltic) - ANGELINA
+3) Pop-ups - ANGELINA
+4) Add legislation tab - OLGA
+5) Update the about tab - FOTIS
+6) Main page indicators: - PIOTR
+if user click the blue areas he should know why it's not not in consideration
+he also should see the classified & real values of wind speed / shipping / bath
+7) Main page explanation + convert the weight to the % for the user - PIOTR
+-----------------------------------
+Draft of the report:
+1. Backend - *
+2. Preprocessing (update) - PIOTR
+3. General on working!!! - FOTIS
