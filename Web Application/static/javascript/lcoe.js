@@ -2,19 +2,19 @@ var classification_LCoE = function (feature, resolution){
   const cost = feature.get('EUR/MWh')
   var layercolor
   if (cost < 28) {
-  layercolor='rgb(255, 100, 0)';
+  layercolor='#99ff99';
   }
   else if (cost < 45) {
-  layercolor='rgb(125, 150, 0)';
+  layercolor='#33ff33';
   }
   else if (cost < 55) {
-  layercolor='rgb(0, 200, 0)';
+  layercolor='#00e600';
   }
   else if (cost < 65) {
-  layercolor='rgb(0, 100, 0)';
+  layercolor='#009900';
   }
   else {
-  layercolor='rgb(0, 50, 0)';
+  layercolor='#003300';
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
@@ -28,7 +28,7 @@ var classification_LCoE = function (feature, resolution){
 };
 
 var lcoe = new ol.layer.Vector({
-  title: 'LCoE',
+  title: 'EUR/Turbine',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/geojson/LCoE.geojson',
@@ -93,7 +93,8 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the propertis of the feature
-        var content = '<p>' + 'EUR/MWh: ' + feature.get('EUR/MWh') + '</p>';
+        var content = '<p>' + 'EUR/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
+        content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 

@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lcoe.css') }}" type="text/css">
+{% endblock %}
 
+
+{% block body %}
 <div class="container-fluid" style="margin-top:10px">
   <div class="row">
 
@@ -15,15 +19,20 @@
     </div>
 
     <!-- Column -->
-    <div class="col-3" align='center'>
-      <h2> Money, Money, Money <h2>
-          <p>I work all night, I work all day, to pay the bills I have to pay</p>
-          <p>Ain't it sad</p>
-          <p>And still there never seems to be a single penny left for me</p>
-          <p>That's too bad</p>
-          <p>In my dreams I have a plan</p>
-          <p>If I got me a wealthy man</p>
-          <p>I wouldn't have to work at all, I'd fool around and have a ball</p>
+    <div class="col-3">
+      <h2 id="cost-title"> EUR/Turbine <h2>
+          <p class='cost-paragraph'> It was assumed that each turbine has one turbine with the following parameters: </p>
+          <p class='cost-paragraph'> Blade length, l = 52 m</p>
+          <p class='cost-paragraph'> Air density, p = 1.23 kg/m<sup>3</sup></p>
+          <p class='cost-paragraph'> Power Coefficient, C<sub>p</sub> = 0.4</p>
+          <p class='cost-paragraph'> A = &#120587;l<sup>2</sup></p>
+          <p class='cost-paragraph'> Wind speed, v = grid wind speed</p>
+          <br>
+          <p class='cost-paragraph'> Then the output of each grid was calculated using the equation: </p>
+          <p class='cost-paragraph'> P<sub>avail</sub> = &frac12;pAv<sup>3</sup>C<sub>p</sub> </p>
+          <br>
+          <p class='cost-paragraph'> On this basis and LCoE for offshore wind energy in 2019, the income from one wind turbine was calculated. </p>
+
     </div>
   </div>
   <script src="{{ url_for('static', filename='javascript/lcoe.js') }}"></script>
