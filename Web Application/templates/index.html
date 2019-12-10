@@ -2,39 +2,44 @@
 
 {% block body %}
 <!-- Map -->
-<div class="col-9">
-  <div id="map" class="map"></div>
-  <div id="popup" class="ol-popup">
-    <a id="popup-closer" class="ol-popup-closer"></a>
-    <div id="popup-content"></div>
-  </div>
-</div>
+<div class="container-fluid" style="margin-top:10px">
+  <div class="row">
+    <div class="col-9">
+      <div id="map" class="map"></div>
+      <div id="popup" class="ol-popup">
+        <a id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+      </div>
+    </div>
 
-<!-- Sliders -->
-<div class="col-3" align='center'>
-  <div class="slidecontainer">
-    <h3 id='title1'>Baltic Offshore Potential</h3>
-    <br>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-    
-    <p align='center'><b>Bathymetry</b></p>
-    <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
-    <p>Bathymetry weight: <span id="outBath"></span></p>
+    <!-- Sliders -->
+    <div class="col-3">
+      <div class="slidecontainer">
+        <h3 id='title1'>Baltic Offshore Potential</h3>
+        <br>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </p>
 
-    <p align='center'><b>Shipping</b></p>
+        <p class="sliders-title"><b>Bathymetry</b></p>
+        <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
+        <p>Bathymetry weight: <span id="outBath"></span></p>
+
+        <p class="sliders-title"'><b>Shipping</b></p>
     <input type="range" min="0" max="10" value="5" class="slider" id="rangeShip">
     <p>Shipping weight: <span id="outShip"></span></p>
 
-    <p align='center'><b>Wind Speed</b></p>
+    <p class="sliders-title"><b>Wind Speed</b></p>
     <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
     <p>Wind Speed weight: <span id="outWind"></span></p>
   </div>
-  <button type="button" onclick="commitWeightFunction()" id="commitButton">Click Me!</button>
+  <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
   <div class="progress-wrap progress" data-progresspercent="100" data-height="10px" data-width="150px" data-speed="8750" data-color="#353942">
     <div class="progress-bar progress"></div>
   </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
 </div>
 {% endblock %}
