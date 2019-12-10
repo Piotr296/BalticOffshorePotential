@@ -12,7 +12,7 @@ var wind_farms = new ol.layer.Vector({
   title: 'Existing Wind Farms',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'static/wind_farms.geojson',
+    url: 'static/geojson/wind_farms.geojson',
   }),
   style: circle
 });

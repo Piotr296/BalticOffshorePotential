@@ -29,112 +29,110 @@ var classification_sustainability = function (feature, resolution){
   })
 };
 
-var classification_LCoE = function (feature, resolution){
-  const cost = feature.get('EUR/MWh')
-  var layercolor
-  if (cost < 28) {
-  layercolor='rgb(255, 100, 0)';
-  }
-  else if (cost < 45) {
-  layercolor='rgb(125, 150, 0)';
-  }
-  else if (cost < 55) {
-  layercolor='rgb(0, 200, 0)';
-  }
-  else if (cost < 65) {
-  layercolor='rgb(0, 100, 0)';
-  }
-  else {
-  layercolor='rgb(0, 50, 0)';
-  }
-  return new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(0, 0, 0, 0)',
-      width: 0.1
-    }),
-    fill: new ol.style.Fill({
-      color: layercolor
-    })
-  })
-};
-
-var classification_eez = function (feature, resolution){
-  const territory1 = feature.get('territory1')
-  var layercolor
-  if (territory1 === "Germany") {
-  layercolor='rgb(0, 255, 191, 0.5)';
-  }
-  else if (territory1 === "Russia" ) {
-  layercolor='rgb(0, 255, 0, 0.5)';
-  }
-  else if (territory1 === "Sweden") {
-  layercolor='	rgb(0, 191, 255, 0.5)';
-  }
-  else if (territory1 === "Latvia") {
-  layercolor='rgb(0, 128, 255, 0.5)';
-  }
-  else if (territory1 === "Estonia") {
-  layercolor='rgb(0, 64, 255, 0.5)';
-  }
-  else if (territory1 === "Poland") {
-  layercolor='rgb	rgb(0, 0, 255, 0.5)';
-  }
-  else if (territory1 === "Finland") {
-  layercolor='rgb(64, 0, 255, 0.5)';
-  }
-  else if (territory1 === "Denmark") {
-  layercolor='rgb(128, 0, 255, 0.5)';
-  }
-  else if (territory1 === "Lithuania") {
-  layercolor='rgb(191, 0, 255, 0.5)';
-  }
-  else {
-  layercolor='rgb(0, 50, 0, 0.5)';
-  }
-  return new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(0, 0, 0, 0)',
-      width: 0.5
-    }),
-    fill: new ol.style.Fill({
-      color: layercolor
-    })
-  })
-};
+// var classification_LCoE = function (feature, resolution){
+//   const cost = feature.get('EUR/MWh')
+//   var layercolor
+//   if (cost < 28) {
+//   layercolor='rgb(255, 100, 0)';
+//   }
+//   else if (cost < 45) {
+//   layercolor='rgb(125, 150, 0)';
+//   }
+//   else if (cost < 55) {
+//   layercolor='rgb(0, 200, 0)';
+//   }
+//   else if (cost < 65) {
+//   layercolor='rgb(0, 100, 0)';
+//   }
+//   else {
+//   layercolor='rgb(0, 50, 0)';
+//   }
+//   return new ol.style.Style({
+//     stroke: new ol.style.Stroke({
+//       color: 'rgba(0, 0, 0, 0)',
+//       width: 0.1
+//     }),
+//     fill: new ol.style.Fill({
+//       color: layercolor
+//     })
+//   })
+// };
+//
+// var classification_eez = function (feature, resolution){
+//   const territory1 = feature.get('territory1')
+//   var layercolor
+//   if (territory1 === "Germany") {
+//   layercolor='rgb(0, 255, 191, 0.5)';
+//   }
+//   else if (territory1 === "Russia" ) {
+//   layercolor='rgb(0, 255, 0, 0.5)';
+//   }
+//   else if (territory1 === "Sweden") {
+//   layercolor='	rgb(0, 191, 255, 0.5)';
+//   }
+//   else if (territory1 === "Latvia") {
+//   layercolor='rgb(0, 128, 255, 0.5)';
+//   }
+//   else if (territory1 === "Estonia") {
+//   layercolor='rgb(0, 64, 255, 0.5)';
+//   }
+//   else if (territory1 === "Poland") {
+//   layercolor='rgb	rgb(0, 0, 255, 0.5)';
+//   }
+//   else if (territory1 === "Finland") {
+//   layercolor='rgb(64, 0, 255, 0.5)';
+//   }
+//   else if (territory1 === "Denmark") {
+//   layercolor='rgb(128, 0, 255, 0.5)';
+//   }
+//   else if (territory1 === "Lithuania") {
+//   layercolor='rgb(191, 0, 255, 0.5)';
+//   }
+//   else {
+//   layercolor='rgb(0, 50, 0, 0.5)';
+//   }
+//   return new ol.style.Style({
+//     stroke: new ol.style.Stroke({
+//       color: 'rgba(0, 0, 0, 0)',
+//       width: 0.5
+//     }),
+//     fill: new ol.style.Fill({
+//       color: layercolor
+//     })
+//   })
+// };
 
 var sustainability = new ol.layer.Vector({
   title: 'Sustainability',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'static/output.geojson',
+    url: 'static/geojson/output.geojson',
   }),
   style: classification_sustainability
 });
 
-var lcoe = new ol.layer.Vector({
-  title: 'LCoE',
-  source: new ol.source.Vector({
-    format: new ol.format.GeoJSON(),
-    url: 'static/LCoE.geojson',
-  }),
-  style: classification_LCoE
-});
-
-var eez = new ol.layer.Vector({
-  title: 'EEZ',
-  source: new ol.source.Vector({
-    format: new ol.format.GeoJSON(),
-    url: 'static/EEZ _BALTIC _SEA.geojson',
-  }),
-  style: classification_eez
-});
+// var lcoe = new ol.layer.Vector({
+//   title: 'LCoE',
+//   source: new ol.source.Vector({
+//     format: new ol.format.GeoJSON(),
+//     url: 'static/LCoE.geojson',
+//   }),
+//   style: classification_LCoE
+// });
+//
+// var eez = new ol.layer.Vector({
+//   title: 'EEZ',
+//   source: new ol.source.Vector({
+//     format: new ol.format.GeoJSON(),
+//     url: 'static/EEZ _BALTIC _SEA.geojson',
+//   }),
+//   style: classification_eez
+// });
 
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  lcoe,
-  eez,
   sustainability
 ]
 
@@ -156,53 +154,6 @@ var map = new ol.Map({
 });
 
 map.addControl(new ol.control.LayerSwitcher());
-
-//STATISTICS tab
-
-var circle = new ol.style.Style({
-  image: new ol.style.Circle({
-    radius: 7,
-    fill: new ol.style.Fill({color: 'green'}),
-    stroke: new ol.style.Stroke({
-      color: 'black', width: 1
-    })
-  })
-});
-
-var wind_farms = new ol.layer.Vector({
-  title: 'Existing Wind Farms',
-  source: new ol.source.Vector({
-    format: new ol.format.GeoJSON(),
-    url: 'static/wind_farms.geojson',
-  }),
-  style: circle
-});
-
-var layers = [
-  new ol.layer.Tile({
-    source: new ol.source.OSM()
-  }),
-  wind_farms
-]
-
-var map = new ol.Map({
-  controls: new ol.control.defaults({
-    attributionOptions: {
-      collapsible: false
-    }
-  }).extend([
-    new ol.control.ScaleLine()
-  ]),
-  target: 'existing_farms_map',
-  layers: layers,
-  view: new ol.View({
-    center: ol.proj.fromLonLat([16.176330, 55.384652]),
-    zoom: 6
-  })
-});
-map.addControl(new ol.control.LayerSwitcher());
-
-//END OF STATISTICS tab
 
 
 // Range Sliders
