@@ -40,3 +40,59 @@ var map = new ol.Map({
   })
 });
 map.addControl(new ol.control.LayerSwitcher());
+
+// Popup
+var
+    container = document.getElementById('popup'),
+    content_element = document.getElementById('popup-content'),
+    closer = document.getElementById('popup-closer');
+
+closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+};
+var overlay = new ol.Overlay({
+    element: container,
+    autoPan: true,
+    offset: [0, -10]
+});
+
+map.addOverlay(overlay);
+
+map.on('click', function(evt){
+    var feature = map.forEachFeatureAtPixel(evt.pixel,
+      function(feature, layer) {
+        // Work only if the click on the grid layer
+        if (layer == wind_farms) {
+        return feature;
+        }
+    });
+    if (feature) {
+        // TODO - repair the pop-ups (Fotis)
+        var geometry = feature.getGeometry();
+        var coord = geometry.getCoordinates();
+        // Show us the propertis of the feature
+        var content = '<p>' + 'Name: ' + feature.get('Name') + '</p>';
+        content += '<p>' + 'Foundation: ' + feature.get('Foundation') + '</p>';
+        content += '<p>' + 'Capacity: ' + feature.get('Capacity') + 'MWh' +'</p>';
+        content_element.innerHTML = content;
+        overlay.setPosition(coord);
+
+        console.info(feature.getProperties());
+    }
+});
+
+map.on('pointermove', function(e) {
+  if (e.dragging) return;
+
+  var pixel = e.map.getEventPixel(e.originalEvent);
+  var hit = false;
+  e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+    if (layer === wind_farms) {
+          hit = true;
+     }
+  });
+
+  e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+});

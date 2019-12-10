@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/statistics.css') }}" type="text/css">
+{% endblock %}
+
 {% block body %}
 <!-- Map -->
 <div class="container-fluid" style="margin-top:10px">
   <div class="row">
     <div class="col-6">
       <div id="existing_farms_map" class="map"></div>
+      <div id="popup" class="ol-popup">
+        <a id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+      </div>
     </div>
 
     <!-- Sliders -->
     <div class="col-6" align='center'>
-      <h2> Global Offshore Wind Capacity <h2>
+      <h2> Baltic Offshore Wind Capacity <h2>
           <br>
           <div id="logo">
             <img class="img-responsive" src="https://gwec.net/wp-content/uploads/2018/04/6_Global-cumulative-Offshore-Wind-capacity-in-2017-1.jpg" alt="Energy" height="420" width="600" />

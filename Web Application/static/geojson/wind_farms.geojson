@@ -3,13 +3,13 @@
 "name": "wind_farms",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "ID": "DE46", "Name": "Arkona", "Country": "Germany", "Foundation": "Grounded: Monopile", "Capacity": 385.0, "Lat": 54.783, "Lon": 14.121 }, "geometry": { "type": "Point", "coordinates": [ 14.121, 54.783 ] } },
-{ "type": "Feature", "properties": { "ID": "DE47", "Name": "Wikinger", "Country": "Germany", "Foundation": "Grounded: Jacket (Piled)", "Capacity": 350.0, "Lat": 54.836, "Lon": 14.068 }, "geometry": { "type": "Point", "coordinates": [ 14.068, 54.836 ] } },
+{ "type": "Feature", "properties": { "ID": "DE46", "Name": "Arkona", "Country": "Germany", "Foundation": "Monopile", "Capacity": 385.0, "Lat": 54.783, "Lon": 14.121 }, "geometry": { "type": "Point", "coordinates": [ 14.121, 54.783 ] } },
+{ "type": "Feature", "properties": { "ID": "DE47", "Name": "Wikinger", "Country": "Germany", "Foundation": "Jacket (Piled)", "Capacity": 350.0, "Lat": 54.836, "Lon": 14.068 }, "geometry": { "type": "Point", "coordinates": [ 14.068, 54.836 ] } },
 { "type": "Feature", "properties": { "ID": "DE52", "Name": "EnBW Baltic 2", "Country": "Germany", "Foundation": "Various", "Capacity": 288.0, "Lat": 54.983, "Lon": 13.162 }, "geometry": { "type": "Point", "coordinates": [ 13.162, 54.983 ] } },
-{ "type": "Feature", "properties": { "ID": "DE78", "Name": "EnBW Baltic 1", "Country": "Germany", "Foundation": "Grounded: Monopile", "Capacity": 48.3, "Lat": 54.61, "Lon": 12.651 }, "geometry": { "type": "Point", "coordinates": [ 12.651, 54.61 ] } },
-{ "type": "Feature", "properties": { "ID": "DK07", "Name": "Nysted", "Country": "Denmark", "Foundation": "Grounded: Gravity-Base", "Capacity": 165.6, "Lat": 54.55, "Lon": 11.715 }, "geometry": { "type": "Point", "coordinates": [ 11.715, 54.55 ] } },
-{ "type": "Feature", "properties": { "ID": "DK11", "Name": null, "Country": "Denmark", "Foundation": "Grounded: Gravity-Base", "Capacity": 207.0, "Lat": 54.555, "Lon": 11.549 }, "geometry": { "type": "Point", "coordinates": [ 11.549, 54.555 ] } },
-{ "type": "Feature", "properties": { "ID": "SE02", "Name": "Bockstigen", "Country": "Sweden", "Foundation": "Grounded: Monopile", "Capacity": 3.3, "Lat": 57.036, "Lon": 18.147 }, "geometry": { "type": "Point", "coordinates": [ 18.147, 57.036 ] } },
-{ "type": "Feature", "properties": { "ID": "SE08", "Name": null, "Country": "Sweden", "Foundation": "Grounded: Gravity-Base", "Capacity": 48.0, "Lat": 56.985, "Lon": 17.02 }, "geometry": { "type": "Point", "coordinates": [ 17.02, 56.985 ] } }
+{ "type": "Feature", "properties": { "ID": "DE78", "Name": "EnBW Baltic 1", "Country": "Germany", "Foundation": "Monopile", "Capacity": 48.3, "Lat": 54.61, "Lon": 12.651 }, "geometry": { "type": "Point", "coordinates": [ 12.651, 54.61 ] } },
+{ "type": "Feature", "properties": { "ID": "DK07", "Name": "Nysted", "Country": "Denmark", "Foundation": "Gravity-Base", "Capacity": 165.6, "Lat": 54.55, "Lon": 11.715 }, "geometry": { "type": "Point", "coordinates": [ 11.715, 54.55 ] } },
+{ "type": "Feature", "properties": { "ID": "DK11", "Name": "Rodsand 2", "Country": "Denmark", "Foundation": "Gravity-Base", "Capacity": 207.0, "Lat": 54.555, "Lon": 11.549 }, "geometry": { "type": "Point", "coordinates": [ 11.549, 54.555 ] } },
+{ "type": "Feature", "properties": { "ID": "SE02", "Name": "Bockstigen", "Country": "Sweden", "Foundation": "Monopile", "Capacity": 3.3, "Lat": 57.036, "Lon": 18.147 }, "geometry": { "type": "Point", "coordinates": [ 18.147, 57.036 ] } },
+{ "type": "Feature", "properties": { "ID": "SE08", "Name": "Karehamn", "Country": "Sweden", "Foundation": "Gravity-Base", "Capacity": 48.0, "Lat": 56.985, "Lon": 17.02 }, "geometry": { "type": "Point", "coordinates": [ 17.02, 56.985 ] } }
 ]
 }
