@@ -66,7 +66,7 @@ def worker():
 
     #print(output)
     #create an empty geojson file and overwrite it with the output
-    f = open(r"D:\Moje_dokumenty\Study_in_Denmark\Study_Programme\Study Project\Application\OffshoreLocalizer\Web Application\static\output.geojson", "w+")
+    f = open(r"D:\Moje_dokumenty\Study_in_Denmark\Study_Programme\Study Project\Application\OffshoreLocalizer\Web Application\static\geojson\output.geojson", "w+")
     f.write(output)
     f.close()
     t4 = time.time()
