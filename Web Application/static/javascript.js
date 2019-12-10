@@ -101,7 +101,6 @@ var classification_eez = function (feature, resolution){
     })
   })
 };
-//TODO - add new geojson layer (Fotis)
 
 var sustainability = new ol.layer.Vector({
   title: 'Sustainability',
@@ -122,7 +121,7 @@ var lcoe = new ol.layer.Vector({
 });
 
 var eez = new ol.layer.Vector({
-  title: 'eez',
+  title: 'EEZ',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/EEZ _BALTIC _SEA.geojson',
@@ -135,8 +134,8 @@ var layers = [
     source: new ol.source.OSM()
   }),
   lcoe,
-  sustainability,
-  eez
+  eez,
+  sustainability
 ]
 
 
@@ -244,7 +243,7 @@ map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
         // Work only if the click on the grid layer
-        if (layer == sustainability,eez) {
+        if (layer == sustainability) {
         return feature;
         }
     });
@@ -254,7 +253,6 @@ map.on('click', function(evt){
         var coord = geometry.getCoordinates();
         // Show us the propertis of the feature
         var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
-        content += '<p>' + feature.get('territory1') + '</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 
@@ -268,7 +266,7 @@ map.on('pointermove', function(e) {
   var pixel = e.map.getEventPixel(e.originalEvent);
   var hit = false;
   e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-    if (layer === sustainability,eez) {
+    if (layer === sustainability) {
           hit = true;
      }
   });
