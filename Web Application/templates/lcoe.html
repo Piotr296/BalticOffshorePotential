@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<!-- Map -->
+
 <div class="container-fluid" style="margin-top:10px">
   <div class="row">
-    <div class="col-6">
-      <div id="existing_farms_map" class="map"></div>
+
+    <!-- Map -->
+    <div class="col-9">
+      <div id="lcoe_map" class="map"></div>
+      <div id="popup" class="ol-popup">
+        <a id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+      </div>
     </div>
 
-    <!-- Sliders -->
-    <div class="col-6" align='center'>
-      <h2> Global Offshore Wind Capacity <h2>
-          <br>
-          <div id="logo">
-            <img class="img-responsive" src="https://gwec.net/wp-content/uploads/2018/04/6_Global-cumulative-Offshore-Wind-capacity-in-2017-1.jpg" alt="Energy" height="420" width="600" />
-          </div>
+    <!-- Column -->
+    <div class="col-3" align='center'>
+      <h2> Money, Money, Money <h2>
+          <p>I work all night, I work all day, to pay the bills I have to pay</p>
+          <p>Ain't it sad</p>
+          <p>And still there never seems to be a single penny left for me</p>
+          <p>That's too bad</p>
+          <p>In my dreams I have a plan</p>
+          <p>If I got me a wealthy man</p>
+          <p>I wouldn't have to work at all, I'd fool around and have a ball</p>
     </div>
   </div>
-  <script src="{{ url_for('static', filename='javascript/statistics.js') }}"></script>
+  <script src="{{ url_for('static', filename='javascript/lcoe.js') }}"></script>
 </div>
 {% endblock %}

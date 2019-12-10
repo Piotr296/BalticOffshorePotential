@@ -17,6 +17,10 @@ def about():
 def statistics():
     return render_template("statistics.html")
 
+@app.route("/lcoe")
+def lcoe():
+    return render_template("lcoe.html")
+
 @app.route('/receiver', methods = ['POST'])
 def worker():
     print("Sending POST request")

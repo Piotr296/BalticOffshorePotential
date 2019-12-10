@@ -29,34 +29,7 @@ var classification_sustainability = function (feature, resolution){
   })
 };
 
-// var classification_LCoE = function (feature, resolution){
-//   const cost = feature.get('EUR/MWh')
-//   var layercolor
-//   if (cost < 28) {
-//   layercolor='rgb(255, 100, 0)';
-//   }
-//   else if (cost < 45) {
-//   layercolor='rgb(125, 150, 0)';
-//   }
-//   else if (cost < 55) {
-//   layercolor='rgb(0, 200, 0)';
-//   }
-//   else if (cost < 65) {
-//   layercolor='rgb(0, 100, 0)';
-//   }
-//   else {
-//   layercolor='rgb(0, 50, 0)';
-//   }
-//   return new ol.style.Style({
-//     stroke: new ol.style.Stroke({
-//       color: 'rgba(0, 0, 0, 0)',
-//       width: 0.1
-//     }),
-//     fill: new ol.style.Fill({
-//       color: layercolor
-//     })
-//   })
-// };
+
 //
 // var classification_eez = function (feature, resolution){
 //   const territory1 = feature.get('territory1')
@@ -111,14 +84,7 @@ var sustainability = new ol.layer.Vector({
   style: classification_sustainability
 });
 
-// var lcoe = new ol.layer.Vector({
-//   title: 'LCoE',
-//   source: new ol.source.Vector({
-//     format: new ol.format.GeoJSON(),
-//     url: 'static/LCoE.geojson',
-//   }),
-//   style: classification_LCoE
-// });
+
 //
 // var eez = new ol.layer.Vector({
 //   title: 'EEZ',
@@ -181,8 +147,6 @@ outputWind.innerHTML = sliderWind.value/10;
 sliderWind.oninput = function() {
   outputWind.innerHTML = this.value/10;
 }
-
-// TODO - create the one-sum assert (Fotis)
 
 function commitWeightFunction() {
   if (sliderBath.value/10 + sliderShip.value/10 + sliderWind.value/10 == 1){

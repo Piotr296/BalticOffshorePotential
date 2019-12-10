@@ -1,27 +1,46 @@
-var circle = new ol.style.Style({
-  image: new ol.style.Circle({
-    radius: 7,
-    fill: new ol.style.Fill({color: 'green'}),
+var classification_LCoE = function (feature, resolution){
+  const cost = feature.get('EUR/MWh')
+  var layercolor
+  if (cost < 28) {
+  layercolor='rgb(255, 100, 0)';
+  }
+  else if (cost < 45) {
+  layercolor='rgb(125, 150, 0)';
+  }
+  else if (cost < 55) {
+  layercolor='rgb(0, 200, 0)';
+  }
+  else if (cost < 65) {
+  layercolor='rgb(0, 100, 0)';
+  }
+  else {
+  layercolor='rgb(0, 50, 0)';
+  }
+  return new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: 'black', width: 1
+      color: 'rgba(0, 0, 0, 0)',
+      width: 0.1
+    }),
+    fill: new ol.style.Fill({
+      color: layercolor
     })
   })
-});
+};
 
-var wind_farms = new ol.layer.Vector({
-  title: 'Existing Wind Farms',
+var lcoe = new ol.layer.Vector({
+  title: 'LCoE',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'static/geojson/wind_farms.geojson',
+    url: 'static/geojson/LCoE.geojson',
   }),
-  style: circle
+  style: classification_LCoE
 });
 
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  wind_farms
+  lcoe
 ]
 
 var map = new ol.Map({
@@ -32,11 +51,66 @@ var map = new ol.Map({
   }).extend([
     new ol.control.ScaleLine()
   ]),
-  target: 'existing_farms_map',
+  target: 'lcoe_map',
   layers: layers,
   view: new ol.View({
-    center: ol.proj.fromLonLat([16.176330, 55.384652]),
-    zoom: 6
+    center: ol.proj.fromLonLat([20.064049, 59.954122]),
+    zoom: 5
   })
 });
+
 map.addControl(new ol.control.LayerSwitcher());
+
+// Popup
+var
+    container = document.getElementById('popup'),
+    content_element = document.getElementById('popup-content'),
+    closer = document.getElementById('popup-closer');
+
+closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+};
+var overlay = new ol.Overlay({
+    element: container,
+    autoPan: true,
+    offset: [0, -10]
+});
+
+map.addOverlay(overlay);
+
+map.on('click', function(evt){
+    var feature = map.forEachFeatureAtPixel(evt.pixel,
+      function(feature, layer) {
+        // Work only if the click on the grid layer
+        if (layer == lcoe) {
+        return feature;
+        }
+    });
+    if (feature) {
+        // TODO - repair the pop-ups (Fotis)
+        var geometry = feature.getGeometry();
+        var coord = geometry.getCoordinates();
+        // Show us the propertis of the feature
+        var content = '<p>' + 'EUR/MWh: ' + feature.get('EUR/MWh') + '</p>';
+        content_element.innerHTML = content;
+        overlay.setPosition(coord);
+
+        console.info(feature.getProperties());
+    }
+});
+
+map.on('pointermove', function(e) {
+  if (e.dragging) return;
+
+  var pixel = e.map.getEventPixel(e.originalEvent);
+  var hit = false;
+  e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+    if (layer === lcoe) {
+          hit = true;
+     }
+  });
+
+  e.map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+});
