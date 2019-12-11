@@ -92,7 +92,7 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the property of the feature
-        var content = '<p>' + 'EUR/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
+        var content = '<p>' + 'LCoE/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
         content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
