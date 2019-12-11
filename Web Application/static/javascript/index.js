@@ -153,10 +153,22 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show the property of the feature
-        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
-        content += '<p>' + 'Annual Wind Speed: ' + feature.get('realwindmean').toFixed(2).toString() + ' m/s' +'</p>';
-        content += '<p>' + 'Sea Depth: ' + feature.get('realbathmean').toFixed(2).toString() + ' m' +'</p>';
-        content += '<p>' + 'Shipping: ' + feature.get('realshipmean').toFixed(0).toString() + ' / year' +'</p>';
+        if (feature.get('pareasmean') == 1 && feature.get('bufformean') == 1) {
+          var content = '<p>' + 'Protected Areas (UNESCO/Natura 2000)' + '</p>';
+          content += '<p>' + 'Shore Buffor' + '</p>';
+        }
+        else if (feature.get('pareasmean') == 1) {
+          var content = '<p>' + 'Protected Areas (UNESCO/Natura 2000)' + '</p>';
+        }
+        else if (feature.get('bufformean') == 1) {
+          var content = '<p>' + 'Shore Buffor' + '</p>';
+        }
+        else {
+          var content = '<p>' + '<b>Sustainability: </b>' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
+          content += '<p>' + 'Annual Wind Speed: ' + feature.get('realwindmean').toFixed(2).toString() + ' m/s' +'</p>';
+          content += '<p>' + 'Sea Depth: ' + feature.get('realbathmean').toFixed(2).toString() + ' m' +'</p>';
+          content += '<p>' + 'Shipping: ' + feature.get('realshipmean').toFixed(0).toString() + ' / year' +'</p>';
+        }
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 

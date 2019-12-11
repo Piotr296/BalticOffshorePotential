@@ -28,7 +28,7 @@ var classification_LCoE = function (feature, resolution){
 };
 
 var lcoe = new ol.layer.Vector({
-  title: 'EUR/Turbine',
+  title: 'LCoE/Turbine',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/geojson/LCoE.geojson',
