@@ -21,27 +21,27 @@
     <!-- Sliders -->
     <div class="col-3">
       <div class="slidecontainer">
-        <h3 id='title1'>Baltic Offshore Potential</h3>
+        <h3 id='title'>Baltic Offshore Potential</h3>
         <br>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </p>
 
-        <p class="sliders-title"><b>Bathymetry</b></p>
+        <p class="sliders-title"><b>Sea Depth</b></p>
         <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
-        <p>Bathymetry weight: <span id="outBath"></span></p>
+        <p>Bathymetry weight: <span id="outBath"></span>%</p>
 
         <p class="sliders-title"'><b>Shipping</b></p>
         <input type="range" min="0" max="10" value="5" class="slider" id="rangeShip">
-        <p>Shipping weight: <span id="outShip"></span></p>
+        <p>Shipping weight: <span id="outShip"></span>%</p>
 
         <p class="sliders-title"><b>Wind Speed</b></p>
         <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
-        <p>Wind Speed weight: <span id="outWind"></span></p>
+        <p>Wind Speed weight: <span id="outWind"></span>%</p>
 
       </div>
-      
+
       <!-- Commit Button -->
       <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
       <!-- Progress Bar -->

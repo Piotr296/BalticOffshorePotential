@@ -8,7 +8,7 @@ body, html {
 }
 
 .map {
-  height: 560px;
+  height: 100%;
   width: 100%;
 }
 

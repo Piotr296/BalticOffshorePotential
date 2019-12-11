@@ -66,32 +66,32 @@ map.addControl(new ol.control.LayerSwitcher());
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
 var outputBath = document.getElementById("outBath");
-outputBath.innerHTML = sliderBath.value/10; // Display the default slider value
+outputBath.innerHTML = sliderBath.value*10; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 sliderBath.oninput = function() {
-  outputBath.innerHTML = this.value/10;
+  outputBath.innerHTML = this.value*10;
 }
 
 var sliderShip = document.getElementById("rangeShip");
 var outputShip = document.getElementById("outShip");
-outputShip.innerHTML = sliderShip.value/10;
+outputShip.innerHTML = sliderShip.value*10;
 
 sliderShip.oninput = function() {
-  outputShip.innerHTML = this.value/10;
+  outputShip.innerHTML = this.value*10;
 }
 
 var sliderWind = document.getElementById("rangeWind");
 var outputWind = document.getElementById("outWind");
-outputWind.innerHTML = sliderWind.value/10;
+outputWind.innerHTML = sliderWind.value*10;
 
 sliderWind.oninput = function() {
-  outputWind.innerHTML = this.value/10;
+  outputWind.innerHTML = this.value*10;
 }
 
 function commitWeightFunction() {
   if (sliderBath.value/10 + sliderShip.value/10 + sliderWind.value/10 == 1){
-    // Create a JSON object
+    // Create JSON object
     var weights = [
       { "wB": sliderBath.value/10 },
       { "wS": sliderShip.value/10 },
@@ -118,7 +118,7 @@ function commitWeightFunction() {
     // Stop link reloading the page
    event.preventDefault();
   } else {
-    alert("The weights are not equal to one!");
+    alert("The weights should sum to 100%");
   }
 }
 
@@ -153,7 +153,10 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show the property of the feature
-        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
+        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
+        content += '<p>' + 'Annual Wind Speed: ' + feature.get('realwindmean').toFixed(2).toString() + ' m/s' +'</p>';
+        content += '<p>' + 'Sea Depth: ' + feature.get('realbathmean').toFixed(2).toString() + ' m' +'</p>';
+        content += '<p>' + 'Shipping: ' + feature.get('realshipmean').toFixed(0).toString() + ' / year' +'</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 
