@@ -21,6 +21,10 @@ def statistics():
 def lcoe():
     return render_template("lcoe.html")
 
+@app.route("/legislation")
+def legislation():
+    return render_template("legislation.html")
+
 @app.route('/receiver', methods = ['POST'])
 def worker():
     print("Sending POST request")

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legislation.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<!-- Map -->
+<div class="container-fluid" style="margin-top:10px">
+  <div id="legislation_map" class="map"></div>
+      <div id="popup" class="ol-popup">
+        <a id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+      </div>
+    </div>
+
+    <!-- Sliders -->
+
+
+  <script src="{{ url_for('static', filename='javascript/legislation.js') }}"></script>
+
+{% endblock %}
