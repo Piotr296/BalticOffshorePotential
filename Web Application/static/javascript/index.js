@@ -29,52 +29,6 @@ var classification_sustainability = function (feature, resolution){
   })
 };
 
-
-//
-// var classification_eez = function (feature, resolution){
-//   const territory1 = feature.get('territory1')
-//   var layercolor
-//   if (territory1 === "Germany") {
-//   layercolor='rgb(0, 255, 191, 0.5)';
-//   }
-//   else if (territory1 === "Russia" ) {
-//   layercolor='rgb(0, 255, 0, 0.5)';
-//   }
-//   else if (territory1 === "Sweden") {
-//   layercolor='	rgb(0, 191, 255, 0.5)';
-//   }
-//   else if (territory1 === "Latvia") {
-//   layercolor='rgb(0, 128, 255, 0.5)';
-//   }
-//   else if (territory1 === "Estonia") {
-//   layercolor='rgb(0, 64, 255, 0.5)';
-//   }
-//   else if (territory1 === "Poland") {
-//   layercolor='rgb	rgb(0, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Finland") {
-//   layercolor='rgb(64, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Denmark") {
-//   layercolor='rgb(128, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Lithuania") {
-//   layercolor='rgb(191, 0, 255, 0.5)';
-//   }
-//   else {
-//   layercolor='rgb(0, 50, 0, 0.5)';
-//   }
-//   return new ol.style.Style({
-//     stroke: new ol.style.Stroke({
-//       color: 'rgba(0, 0, 0, 0)',
-//       width: 0.5
-//     }),
-//     fill: new ol.style.Fill({
-//       color: layercolor
-//     })
-//   })
-// };
-
 var sustainability = new ol.layer.Vector({
   title: 'Sustainability',
   source: new ol.source.Vector({
@@ -84,24 +38,12 @@ var sustainability = new ol.layer.Vector({
   style: classification_sustainability
 });
 
-
-//
-// var eez = new ol.layer.Vector({
-//   title: 'EEZ',
-//   source: new ol.source.Vector({
-//     format: new ol.format.GeoJSON(),
-//     url: 'static/EEZ _BALTIC _SEA.geojson',
-//   }),
-//   style: classification_eez
-// });
-
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
   sustainability
 ]
-
 
 var map = new ol.Map({
   controls: new ol.control.defaults({
@@ -121,36 +63,35 @@ var map = new ol.Map({
 
 map.addControl(new ol.control.LayerSwitcher());
 
-
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
 var outputBath = document.getElementById("outBath");
-outputBath.innerHTML = sliderBath.value/10; // Display the default slider value
+outputBath.innerHTML = sliderBath.value*10; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 sliderBath.oninput = function() {
-  outputBath.innerHTML = this.value/10;
+  outputBath.innerHTML = this.value*10;
 }
 
 var sliderShip = document.getElementById("rangeShip");
 var outputShip = document.getElementById("outShip");
-outputShip.innerHTML = sliderShip.value/10;
+outputShip.innerHTML = sliderShip.value*10;
 
 sliderShip.oninput = function() {
-  outputShip.innerHTML = this.value/10;
+  outputShip.innerHTML = this.value*10;
 }
 
 var sliderWind = document.getElementById("rangeWind");
 var outputWind = document.getElementById("outWind");
-outputWind.innerHTML = sliderWind.value/10;
+outputWind.innerHTML = sliderWind.value*10;
 
 sliderWind.oninput = function() {
-  outputWind.innerHTML = this.value/10;
+  outputWind.innerHTML = this.value*10;
 }
 
 function commitWeightFunction() {
   if (sliderBath.value/10 + sliderShip.value/10 + sliderWind.value/10 == 1){
-    // Create a JSON object
+    // Create JSON object
     var weights = [
       { "wB": sliderBath.value/10 },
       { "wS": sliderShip.value/10 },
@@ -159,10 +100,9 @@ function commitWeightFunction() {
     // Send POST request to receiver endpoint
     $.post("receiver", JSON.stringify(weights), function(){
       location.reload()
-    }); //Just in case keep the function()
+    });
 
-    //progress bar http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
-    // or check https://loading.io/progress/
+    // Progress Bar: http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
     $(document).ready(function(){
      var progressSelector = $(".progress-wrap");
      progressSelector.each(function(){
@@ -178,11 +118,11 @@ function commitWeightFunction() {
     // Stop link reloading the page
    event.preventDefault();
   } else {
-    alert("The weights are not equal to one!");
+    alert("The weights should sum to 100%");
   }
 }
 
-// Popup
+// Popups
 var
     container = document.getElementById('popup'),
     content_element = document.getElementById('popup-content'),
@@ -210,11 +150,25 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
-        // TODO - repair the pop-ups (Fotis)
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
-        // Show us the propertis of the feature
-        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
+        // Show the property of the feature
+        if (feature.get('pareasmean') == 1 && feature.get('bufformean') == 1) {
+          var content = '<p>' + 'Protected Areas (UNESCO/Natura 2000)' + '</p>';
+          content += '<p>' + 'Shore Buffor' + '</p>';
+        }
+        else if (feature.get('pareasmean') == 1) {
+          var content = '<p>' + 'Protected Areas (UNESCO/Natura 2000)' + '</p>';
+        }
+        else if (feature.get('bufformean') == 1) {
+          var content = '<p>' + 'Shore Buffor' + '</p>';
+        }
+        else {
+          var content = '<p>' + '<b>Sustainability: </b>' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
+          content += '<p>' + 'Annual Wind Speed: ' + feature.get('realwindmean').toFixed(2).toString() + ' m/s' +'</p>';
+          content += '<p>' + 'Sea Depth: ' + feature.get('realbathmean').toFixed(2).toString() + ' m' +'</p>';
+          content += '<p>' + 'Shipping: ' + feature.get('realshipmean').toFixed(0).toString() + ' / year' +'</p>';
+        }
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 
@@ -222,6 +176,7 @@ map.on('click', function(evt){
     }
 });
 
+// Change the cursor if on targer layer
 map.on('pointermove', function(e) {
   if (e.dragging) return;
 

@@ -8,11 +8,11 @@ body, html {
 }
 
 .map {
-  height: 560px;
+  height: 100%;
   width: 100%;
 }
 
-/* Popup */
+/* Popups */
 .ol-popup {
   position: absolute;
   background-color: white;

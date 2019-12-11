@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/lcoe.css') }}" type="text/css">
 {% endblock %}
 
-
 {% block body %}
 <div class="container-fluid" style="margin-top:10px">
   <div class="row">
@@ -12,15 +11,16 @@
     <!-- Map -->
     <div class="col-9">
       <div id="lcoe_map" class="map"></div>
+      <!-- Popups -->
       <div id="popup" class="ol-popup">
         <a id="popup-closer" class="ol-popup-closer"></a>
         <div id="popup-content"></div>
       </div>
     </div>
 
-    <!-- Column -->
+    <!-- Cost -->
     <div class="col-3">
-      <h2 id="cost-title"> EUR/Turbine <h2>
+      <h2 id="cost-title"> LCoE/Turbine <h2>
           <p class='cost-paragraph'> It was assumed that each turbine has one turbine with the following parameters: </p>
           <p class='cost-paragraph'> Blade length, l = 52 m</p>
           <p class='cost-paragraph'> Air density, p = 1.23 kg/m<sup>3</sup></p>
@@ -32,9 +32,10 @@
           <p class='cost-paragraph'> P<sub>avail</sub> = &frac12;pAv<sup>3</sup>C<sub>p</sub> </p>
           <br>
           <p class='cost-paragraph'> On this basis and LCoE for offshore wind energy in 2019, the income from one wind turbine was calculated. </p>
-
     </div>
   </div>
+
+  <!-- Import JS -->
   <script src="{{ url_for('static', filename='javascript/lcoe.js') }}"></script>
 </div>
 {% endblock %}

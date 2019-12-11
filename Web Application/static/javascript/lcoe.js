@@ -28,7 +28,7 @@ var classification_LCoE = function (feature, resolution){
 };
 
 var lcoe = new ol.layer.Vector({
-  title: 'EUR/Turbine',
+  title: 'LCoE/Turbine',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/geojson/LCoE.geojson',
@@ -61,7 +61,7 @@ var map = new ol.Map({
 
 map.addControl(new ol.control.LayerSwitcher());
 
-// Popup
+// Popups
 var
     container = document.getElementById('popup'),
     content_element = document.getElementById('popup-content'),
@@ -83,17 +83,16 @@ map.addOverlay(overlay);
 map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
-        // Work only if the click on the grid layer
+        // Work only if the click on the layer
         if (layer == lcoe) {
         return feature;
         }
     });
     if (feature) {
-        // TODO - repair the pop-ups (Fotis)
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
-        // Show us the propertis of the feature
-        var content = '<p>' + 'EUR/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
+        // Show us the property of the feature
+        var content = '<p>' + 'LCoE/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
         content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
@@ -102,6 +101,7 @@ map.on('click', function(evt){
     }
 });
 
+// Change the cursor if on targer layer
 map.on('pointermove', function(e) {
   if (e.dragging) return;
 
