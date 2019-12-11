@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block body %}
-<!-- Map -->
 <div class="container-fluid" style="margin-top:10px">
   <div class="row">
+
+    <!-- Map -->
     <div class="col-9">
       <div id="map" class="map"></div>
+      <!-- Popups -->
       <div id="popup" class="ol-popup">
         <a id="popup-closer" class="ol-popup-closer"></a>
         <div id="popup-content"></div>
@@ -37,13 +39,19 @@
         <p class="sliders-title"><b>Wind Speed</b></p>
         <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
         <p>Wind Speed weight: <span id="outWind"></span></p>
-    </div>
-    <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
-    <div class="progress-wrap progress" data-progresspercent="100" data-height="10px" data-width="150px" data-speed="8750" data-color="#353942">
-      <div class="progress-bar progress"></div>
-    </div>
+
       </div>
+      
+      <!-- Commit Button -->
+      <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
+      <!-- Progress Bar -->
+      <div class="progress-wrap progress" data-progresspercent="100" data-height="10px" data-width="150px" data-speed="8750" data-color="#353942">
+        <div class="progress-bar progress"></div>
+      </div>
+    </div>
   </div>
-<script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
+
+  <!-- Import JS -->
+  <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
 </div>
 {% endblock %}

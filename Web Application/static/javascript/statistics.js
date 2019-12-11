@@ -41,7 +41,7 @@ var map = new ol.Map({
 });
 map.addControl(new ol.control.LayerSwitcher());
 
-// Popup
+// Popups
 var
     container = document.getElementById('popup'),
     content_element = document.getElementById('popup-content'),
@@ -63,16 +63,15 @@ map.addOverlay(overlay);
 map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
-        // Work only if the click on the grid layer
+        // Work only if the click on the layer
         if (layer == wind_farms) {
         return feature;
         }
     });
     if (feature) {
-        // TODO - repair the pop-ups (Fotis)
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
-        // Show us the propertis of the feature
+        // Show us the property of the feature
         var content = '<p>' + 'Name: ' + feature.get('Name') + '</p>';
         content += '<p>' + 'Foundation: ' + feature.get('Foundation') + '</p>';
         content += '<p>' + 'Capacity: ' + feature.get('Capacity') + 'MWh' +'</p>';
@@ -83,6 +82,7 @@ map.on('click', function(evt){
     }
 });
 
+// Change the cursor if on targer layer
 map.on('pointermove', function(e) {
   if (e.dragging) return;
 

@@ -1,25 +1,40 @@
-var classification_LCoE = function (feature, resolution){
-  const cost = feature.get('EUR/MWh')
+var classification_eez = function (feature, resolution){
+  const territory1 = feature.get('territory1')
   var layercolor
-  if (cost < 28) {
-  layercolor='#99ff99';
+  if (territory1 === "Germany") {
+  layercolor='rgb(0, 255, 191, 0.5)';
   }
-  else if (cost < 45) {
-  layercolor='#33ff33';
+  else if (territory1 === "Russia" ) {
+  layercolor='rgb(0, 255, 0, 0.5)';
   }
-  else if (cost < 55) {
-  layercolor='#00e600';
+  else if (territory1 === "Sweden") {
+  layercolor='	rgb(0, 191, 255, 0.5)';
   }
-  else if (cost < 65) {
-  layercolor='#009900';
+  else if (territory1 === "Latvia") {
+  layercolor='rgb(0, 128, 255, 0.5)';
+  }
+  else if (territory1 === "Estonia") {
+  layercolor='rgb(0, 64, 255, 0.5)';
+  }
+  else if (territory1 === "Poland") {
+  layercolor='rgb	rgb(0, 0, 255, 0.5)';
+  }
+  else if (territory1 === "Finland") {
+  layercolor='rgb(64, 0, 255, 0.5)';
+  }
+  else if (territory1 === "Denmark") {
+  layercolor='rgb(128, 0, 255, 0.5)';
+  }
+  else if (territory1 === "Lithuania") {
+  layercolor='rgb(191, 0, 255, 0.5)';
   }
   else {
-  layercolor='#003300';
+  layercolor='rgb(0, 50, 0, 0.5)';
   }
   return new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: 'rgba(0, 0, 0, 0)',
-      width: 0.1
+      width: 0.5
     }),
     fill: new ol.style.Fill({
       color: layercolor
@@ -27,20 +42,20 @@ var classification_LCoE = function (feature, resolution){
   })
 };
 
-var lcoe = new ol.layer.Vector({
-  title: 'EUR/Turbine',
+var eez = new ol.layer.Vector({
+  title: 'EEZ',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
-    url: 'static/geojson/LCoE.geojson',
+    url: 'static/EEZ _BALTIC _SEA.geojson',
   }),
-  style: classification_LCoE
+  style: classification_eez
 });
 
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  lcoe
+  eez
 ]
 
 var map = new ol.Map({
@@ -51,7 +66,7 @@ var map = new ol.Map({
   }).extend([
     new ol.control.ScaleLine()
   ]),
-  target: 'lcoe_map',
+  target: 'map_eez',
   layers: layers,
   view: new ol.View({
     center: ol.proj.fromLonLat([20.064049, 59.954122]),
@@ -84,7 +99,7 @@ map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
         // Work only if the click on the layer
-        if (layer == lcoe) {
+        if (layer == eez) {
         return feature;
         }
     });
@@ -92,8 +107,7 @@ map.on('click', function(evt){
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
         // Show us the property of the feature
-        var content = '<p>' + 'EUR/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + '</p>';
-        content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
+        var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
 
@@ -108,7 +122,7 @@ map.on('pointermove', function(e) {
   var pixel = e.map.getEventPixel(e.originalEvent);
   var hit = false;
   e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-    if (layer === lcoe) {
+    if (layer === eez) {
           hit = true;
      }
   });

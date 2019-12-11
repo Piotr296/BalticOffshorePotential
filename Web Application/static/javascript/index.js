@@ -29,52 +29,6 @@ var classification_sustainability = function (feature, resolution){
   })
 };
 
-
-//
-// var classification_eez = function (feature, resolution){
-//   const territory1 = feature.get('territory1')
-//   var layercolor
-//   if (territory1 === "Germany") {
-//   layercolor='rgb(0, 255, 191, 0.5)';
-//   }
-//   else if (territory1 === "Russia" ) {
-//   layercolor='rgb(0, 255, 0, 0.5)';
-//   }
-//   else if (territory1 === "Sweden") {
-//   layercolor='	rgb(0, 191, 255, 0.5)';
-//   }
-//   else if (territory1 === "Latvia") {
-//   layercolor='rgb(0, 128, 255, 0.5)';
-//   }
-//   else if (territory1 === "Estonia") {
-//   layercolor='rgb(0, 64, 255, 0.5)';
-//   }
-//   else if (territory1 === "Poland") {
-//   layercolor='rgb	rgb(0, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Finland") {
-//   layercolor='rgb(64, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Denmark") {
-//   layercolor='rgb(128, 0, 255, 0.5)';
-//   }
-//   else if (territory1 === "Lithuania") {
-//   layercolor='rgb(191, 0, 255, 0.5)';
-//   }
-//   else {
-//   layercolor='rgb(0, 50, 0, 0.5)';
-//   }
-//   return new ol.style.Style({
-//     stroke: new ol.style.Stroke({
-//       color: 'rgba(0, 0, 0, 0)',
-//       width: 0.5
-//     }),
-//     fill: new ol.style.Fill({
-//       color: layercolor
-//     })
-//   })
-// };
-
 var sustainability = new ol.layer.Vector({
   title: 'Sustainability',
   source: new ol.source.Vector({
@@ -84,24 +38,12 @@ var sustainability = new ol.layer.Vector({
   style: classification_sustainability
 });
 
-
-//
-// var eez = new ol.layer.Vector({
-//   title: 'EEZ',
-//   source: new ol.source.Vector({
-//     format: new ol.format.GeoJSON(),
-//     url: 'static/EEZ _BALTIC _SEA.geojson',
-//   }),
-//   style: classification_eez
-// });
-
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
   sustainability
 ]
-
 
 var map = new ol.Map({
   controls: new ol.control.defaults({
@@ -120,7 +62,6 @@ var map = new ol.Map({
 });
 
 map.addControl(new ol.control.LayerSwitcher());
-
 
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
@@ -159,10 +100,9 @@ function commitWeightFunction() {
     // Send POST request to receiver endpoint
     $.post("receiver", JSON.stringify(weights), function(){
       location.reload()
-    }); //Just in case keep the function()
+    });
 
-    //progress bar http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
-    // or check https://loading.io/progress/
+    // Progress Bar: http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
     $(document).ready(function(){
      var progressSelector = $(".progress-wrap");
      progressSelector.each(function(){
@@ -182,7 +122,7 @@ function commitWeightFunction() {
   }
 }
 
-// Popup
+// Popups
 var
     container = document.getElementById('popup'),
     content_element = document.getElementById('popup-content'),
@@ -210,10 +150,9 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
-        // TODO - repair the pop-ups (Fotis)
         var geometry = feature.getGeometry();
         var coord = geometry.getCoordinates();
-        // Show us the propertis of the feature
+        // Show the property of the feature
         var content = '<p>' + 'Sustainability: ' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + '%' + '</p>';
         content_element.innerHTML = content;
         overlay.setPosition(coord);
@@ -222,6 +161,7 @@ map.on('click', function(evt){
     }
 });
 
+// Change the cursor if on targer layer
 map.on('pointermove', function(e) {
   if (e.dragging) return;
 
