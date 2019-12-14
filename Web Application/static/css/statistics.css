@@ -55,3 +55,19 @@ body, html {
 .ol-popup-closer:after {
   content: "✖";
 }
+
+/*INTERACTIVE GRAPH
+*/
+
+.chart--container {
+  height: 100%;
+  width: 100%;
+}
+
+.zc-ref {
+  display: none;
+}
+
+zing-grid[loading] {
+  height: 700px;
+}
