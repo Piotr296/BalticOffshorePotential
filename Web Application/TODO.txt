@@ -1,16 +1,15 @@
-Send repository to Carsten
+TODO 14/12/2019 
+1) Rename the layer from sustainability to suitability - PIOTR
+2) Rename shipping slider to something like ''annual shipping density'' or ''shipping traffic'' or ''shipping routes' - PIOTR
+3) In the about page we could put some photos of us - FOTIS
+4) Give the user the capability to download data being used in each map - OLGA
+5) Make our website responsive - ANGELINA
+6) Backend work - optimalize SQL query, allow multiple request handing (Carsten) - PIOTR
+7) Explain the constraints of suitability on the main page - PIOTR
 
-1) Padding on the maps - OLGA
-2) Interactive graphs (for Baltic) - ANGELINA
-3) Pop-ups - ANGELINA
-4) Add legislation tab - OLGA
-5) Update the about tab - FOTIS
-6) Main page indicators: - PIOTR
-if user click the blue areas he should know why it's not not in consideration
-he also should see the classified & real values of wind speed / shipping / bath
-7) Main page explanation + convert the weight to the % for the user - PIOTR
------------------------------------
-Draft of the report:
-1. Backend - *
-2. Preprocessing (update) - PIOTR
-3. General on working!!! - FOTIS
+Still:
+1) Padding the maps (resize them to full screen) - OLGA
+2) Pop-ups - ANGELINA
+3) Update the about page - FOTIS
+4) Report draft - FOTIS
+5) Update preprocessing report part - PIOTR
