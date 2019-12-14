@@ -2,6 +2,8 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/statistics.css') }}" type="text/css">
+<!-- interactive graph -->
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -20,15 +22,14 @@
 
     <!-- Sliders -->
     <div class="col-6" align='center'>
-      <h2> Baltic Offshore Wind Capacity <h2>
           <br>
-          <div id="logo">
-            <img class="img-responsive" src="https://gwec.net/wp-content/uploads/2018/04/6_Global-cumulative-Offshore-Wind-capacity-in-2017-1.jpg" alt="Energy" height="420" width="600" />
-          </div>
+          <!--INTERACTIVE GRAPH-->
+          <div id="myChart" class="chart--container"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
     </div>
   </div>
+</div>
 
-  <!-- Import JS -->
-  <script src="{{ url_for('static', filename='javascript/statistics.js') }}"></script>
+<!-- Import JS -->
+<script src="{{ url_for('static', filename='javascript/statistics.js') }}"></script>
 </div>
 {% endblock %}
