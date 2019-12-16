@@ -1,4 +1,4 @@
-var classification_sustainability = function (feature, resolution){
+var classification_suitability = function (feature, resolution){
   const fuzzyvalue = feature.get('fuzzyvalue')
   var layercolor
   if (fuzzyvalue < 0.2) {
@@ -29,20 +29,20 @@ var classification_sustainability = function (feature, resolution){
   })
 };
 
-var sustainability = new ol.layer.Vector({
-  title: 'Sustainability',
+var suitability = new ol.layer.Vector({
+  title: 'Suitability',
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: 'static/geojson/output.geojson',
   }),
-  style: classification_sustainability
+  style: classification_suitability
 });
 
 var layers = [
   new ol.layer.Tile({
     source: new ol.source.OSM()
   }),
-  sustainability
+  suitability
 ]
 
 var map = new ol.Map({
@@ -145,7 +145,7 @@ map.on('click', function(evt){
     var feature = map.forEachFeatureAtPixel(evt.pixel,
       function(feature, layer) {
         // Work only if the click on the grid layer
-        if (layer == sustainability) {
+        if (layer == suitability) {
         return feature;
         }
     });
@@ -164,10 +164,10 @@ map.on('click', function(evt){
           var content = '<p>' + 'Shore Buffor' + '</p>';
         }
         else {
-          var content = '<p>' + '<b>Sustainability: </b>' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
+          var content = '<p>' + '<b>Suitability: </b>' + ((1-feature.get('fuzzyvalue'))*100).toFixed(2).toString() + ' %' + '</p>';
           content += '<p>' + 'Annual Wind Speed: ' + feature.get('realwindmean').toFixed(2).toString() + ' m/s' +'</p>';
           content += '<p>' + 'Sea Depth: ' + feature.get('realbathmean').toFixed(2).toString() + ' m' +'</p>';
-          content += '<p>' + 'Shipping: ' + feature.get('realshipmean').toFixed(0).toString() + ' / year' +'</p>';
+          content += '<p>' + 'Annual shipping density: ' + feature.get('realshipmean').toFixed(0).toString() + ' ships/year' +'</p>';
         }
         content_element.innerHTML = content;
         overlay.setPosition(coord);
@@ -183,7 +183,7 @@ map.on('pointermove', function(e) {
   var pixel = e.map.getEventPixel(e.originalEvent);
   var hit = false;
   e.map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-    if (layer === sustainability) {
+    if (layer === suitability) {
           hit = true;
      }
   });

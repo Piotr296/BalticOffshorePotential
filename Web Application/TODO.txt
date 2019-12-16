@@ -1,6 +1,4 @@
 TODO 14/12/2019 
-1) Rename the layer from sustainability to suitability - PIOTR
-2) Rename shipping slider to something like ''annual shipping density'' or ''shipping traffic'' or ''shipping routes' - PIOTR
 3) In the about page we could put some photos of us - FOTIS
 4) Give the user the capability to download data being used in each map - OLGA
 5) Make our website responsive - ANGELINA

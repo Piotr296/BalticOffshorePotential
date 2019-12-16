@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 
-}.WebContainer{
-    width: 100%;
-    height: auto;
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
-.articles{
-    width:90%; /*Takes 90% width from WebContainer*/
-    height: auto;
-    margin: auto;
+
+.map {
+  height: 100%;
+  width: 100%;
 }
 
 /* Popup */
