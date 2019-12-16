@@ -112,7 +112,7 @@ map.on('click', function(evt){
         // Show us the propertis of the feature
         var content = '<p>' + feature.get('territory1') + '</p>';
         // content += '<p>' + 'National laws: ' + feature.get('laws') + '</p>';
-        content += '<p>' + '<a href="'+ feature.get('laws') +'">' + 'National legislation' + '</a>' + '</p>';
+        content += '<p>' + '<a href="'+ feature.get('laws') +'" target="_blank">' + 'National legislation' + '</a>' + '</p>';
 
         content_element.innerHTML = content;
         overlay.setPosition(coord);
