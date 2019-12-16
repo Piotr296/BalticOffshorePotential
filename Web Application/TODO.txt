@@ -1,13 +1,24 @@
-TODO 14/12/2019 
-3) In the about page we could put some photos of us - FOTIS
-4) Give the user the capability to download data being used in each map - OLGA
-5) Make our website responsive - ANGELINA
-6) Backend work - optimalize SQL query, allow multiple request handing (Carsten) - PIOTR
-7) Explain the constraints of suitability on the main page - PIOTR
+Until 22.12.2019
 
-Still:
-1) Padding the maps (resize them to full screen) - OLGA
-2) Pop-ups - ANGELINA
-3) Update the about page - FOTIS
-4) Report draft - FOTIS
-5) Update preprocessing report part - PIOTR
+Angelina - Responsivness 
+Olga - Downloading features
+Piotr - Popups and SQL from Carsten
+Fotis - About/Contact page and Draft of the report
+
+----
+Until 28.12.2019 
+
+Piotr - Preprocessing and Results (Key areas = validation)
+Angelina - Server Setup(connection)
+Olga - Frontend
+Fotis - Database Setup
+
+----
+27/28.12 skype call, 29.12 happy birthday to Angelina!
+
+6/7/8.01 project meeting - finalizing the report
+
+13/14/15.01 - presenetaiton meeting
+
+20/21.01 - learning meeting
+
