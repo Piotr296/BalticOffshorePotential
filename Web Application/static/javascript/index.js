@@ -91,35 +91,25 @@ sliderWind.oninput = function() {
 
 function commitWeightFunction() {
   if (sliderBath.value/10 + sliderShip.value/10 + sliderWind.value/10 == 1){
-    // Create JSON object
-    var weights = [
-      { "wB": sliderBath.value/10 },
-      { "wS": sliderShip.value/10 },
-      { "wW": sliderWind.value/10 }
-    ];
-    // Send POST request to receiver endpoint
-    $.post("receiver", JSON.stringify(weights), function(){
-      location.reload()
-    });
+    var source = suitability.getSource();
+    var features = source.getFeatures();
 
-    // Progress Bar: http://www.freakyjolly.com/simple-progress-percentage-small-bar-css-jquery/
-    $(document).ready(function(){
-     var progressSelector = $(".progress-wrap");
-     progressSelector.each(function(){
-     var getPercent = $(this).attr("data-progresspercent");
-     var getSpeed = parseInt($(this).attr("data-speed"));
-     var getColor = $(this).attr("data-color");
-     var getHeight = $(this).attr("data-height");
-     var getWidth = $(this).attr("data-width");
-     $(this).css({"height":getHeight,"width":getWidth});
-     $(this).find(".progress-bar").css({"background-color":"#"+getColor}).animate({ width:getPercent+'%' },getSpeed)
-     });
+
+    features.forEach(function(feature){
+      if (feature.get("pareasmean") == 0.0 && feature.get("bufformean") == 0.0) {
+        var new_fuzzy_value = (feature.get("bathmean") * sliderBath.value/10) + (feature.get("shipmean") * sliderShip.value/10) + (feature.get("windmean") * sliderWind.value/10)
+        feature.set("fuzzyvalue", new_fuzzy_value)
+        console.log("Done")
+    } else {
+      console.log("Not Done")
+    }
+
     });
-    // Stop link reloading the page
-   event.preventDefault();
   } else {
     alert("The weights should sum to 100%");
   }
+
+
 }
 
 // Popups
