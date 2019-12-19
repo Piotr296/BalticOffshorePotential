@@ -65,7 +65,7 @@ body, html {
   border-radius: 10px;
   border: 1px solid #cccccc;
   bottom: 12px;
-  left: 50px;
+  left: -50px;
   min-width: 315px;
 }
 .ol-popup:after, .ol-popup:before {
