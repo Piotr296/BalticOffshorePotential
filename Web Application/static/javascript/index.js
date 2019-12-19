@@ -150,8 +150,6 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
-        var geometry = feature.getGeometry();
-        var coord = geometry.getCoordinates();
         // Show the property of the feature
         if (feature.get('pareasmean') == 1 && feature.get('bufformean') == 1) {
           var content = '<p>' + 'Protected Areas (UNESCO/Natura 2000)' + '</p>';
@@ -170,7 +168,7 @@ map.on('click', function(evt){
           content += '<p>' + 'Annual shipping density: ' + feature.get('realshipmean').toFixed(0).toString() + ' ships/year' +'</p>';
         }
         content_element.innerHTML = content;
-        overlay.setPosition(coord);
+        overlay.setPosition(evt.coordinate);
 
         console.info(feature.getProperties());
     }

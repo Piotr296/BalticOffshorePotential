@@ -89,13 +89,11 @@ map.on('click', function(evt){
         }
     });
     if (feature) {
-        var geometry = feature.getGeometry();
-        var coord = geometry.getCoordinates();
         // Show us the property of the feature
         var content = '<p>' + 'LCoE/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + 'EUR' +'</p>';
         content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
         content_element.innerHTML = content;
-        overlay.setPosition(coord);
+        overlay.setPosition(evt.coordinate);
 
         console.info(feature.getProperties());
     }

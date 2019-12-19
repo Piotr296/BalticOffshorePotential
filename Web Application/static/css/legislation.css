@@ -23,7 +23,7 @@ body, html {
   border-radius: 10px;
   border: 1px solid #cccccc;
   bottom: 12px;
-  left: 50px;
+  left: -50px;
   min-width: 280px;
 }
 .ol-popup:after, .ol-popup:before {
