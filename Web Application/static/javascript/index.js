@@ -100,16 +100,13 @@ function commitWeightFunction() {
         var new_fuzzy_value = (feature.get("bathmean") * sliderBath.value/10) + (feature.get("shipmean") * sliderShip.value/10) + (feature.get("windmean") * sliderWind.value/10)
         feature.set("fuzzyvalue", new_fuzzy_value)
         console.log("Done")
-    } else {
+      } else {
       console.log("Not Done")
-    }
-
+      }
     });
   } else {
     alert("The weights should sum to 100%");
   }
-
-
 }
 
 // Popups
