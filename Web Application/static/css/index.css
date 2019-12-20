@@ -17,12 +17,13 @@ body, html {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  color: white;
 }
 #tools a {
   display: inline-block;
-  padding: 0.5rem;
   background: sans-serif;
   cursor: pointer;
+  color: white;
 }
 
 /* Range Slider */
