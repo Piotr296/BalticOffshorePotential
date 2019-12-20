@@ -20,6 +20,19 @@ body, html {
   text-align: center;
 }
 
+/*Downloading*/
+#tools {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+#tools a {
+  display: inline-block;
+  padding: 0.5rem;
+  background: sans-serif;
+  cursor: pointer;
+}
+
 /* Popups */
 .ol-popup {
   position: absolute;

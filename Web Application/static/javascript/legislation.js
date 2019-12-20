@@ -42,6 +42,9 @@ var classification_eez = function (feature, resolution){
   })
 };
 
+//Downloading
+download.href = 'static/geojson/EEZ_BALTIC_SEA.geojson';
+
 
 var eez = new ol.layer.Vector({
   title: 'eez',

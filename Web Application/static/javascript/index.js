@@ -63,6 +63,9 @@ var map = new ol.Map({
 
 map.addControl(new ol.control.LayerSwitcher());
 
+//Downloading
+download.href = 'static/geojson/output.geojson';
+
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
 var outputBath = document.getElementById("outBath");

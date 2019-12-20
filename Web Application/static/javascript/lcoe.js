@@ -61,6 +61,9 @@ var map = new ol.Map({
 
 map.addControl(new ol.control.LayerSwitcher());
 
+//Downloading
+download.href = 'static/geojson/LCoE.geojson';
+
 // Popups
 var
     container = document.getElementById('popup'),
