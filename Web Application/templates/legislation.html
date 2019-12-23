@@ -7,15 +7,12 @@
 
 {% block body %}
 <!-- Map -->
-<div class="container-fluid" style="margin-top:10px">
+<div class="container-fluid full-height no-padding">
   <div id="legislation_map" class="map"></div>
   <div id="popup" class="ol-popup">
     <a id="popup-closer" class="ol-popup-closer"></a>
     <div id="popup-content"></div>
   </div>
-</div>
-<div id="tools">
-  <a id="download" download="EEZ_BALTIC_SEA.geojson">Download GeoJSON</a>
 </div>
 
 <script src="{{ url_for('static', filename='javascript/legislation.js') }}"></script>
