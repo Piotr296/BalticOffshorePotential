@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid" style="margin-top:10px">
-  <div class="row">
+<div class="container-fluid full-height">
+  <div class="row full-height">
 
     <!-- Map -->
-    <div class="col-9">
+    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 col-no-padding full-height">
       <div id="map" class="map">
         <!-- Popups -->
         <div id="popup" class="ol-popup">
@@ -20,14 +20,10 @@
 
 
     </div>
-      <!-- Downloading button -->
-    <div id="tools">
-      <a id="download" download="output.geojson">Download GeoJSON</a>
-    </div>
 
 
     <!-- Sliders -->
-    <div class="col-3">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 full-height overflow-y-scroll">
       <div class="slidecontainer">
         <h3 id='title'>Baltic Offshore Potential</h3>
         <br>
@@ -53,11 +49,14 @@
         <p class="sliders-title"><b>Annual wind speed</b></p>
         <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
         <p class="sliders-bottom">Weight: <span id="outWind"></span>%</p>
-
+                                 
+        <!-- Commit Button -->
+        <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
+        <br>
+        <!-- Downloading button -->
+        <a href="static/geojson/output.geojson" download="output.geojson">Download GeoJSON</a>
       </div>
 
-      <!-- Commit Button -->
-      <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
     </div>
   </div>
 
