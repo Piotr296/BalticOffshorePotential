@@ -44,9 +44,6 @@ var map = new ol.Map({
 });
 map.addControl(new ol.control.LayerSwitcher());
 
-//Downloading
-download.href = 'static/geojson/wind_farms.geojson';
-
 
 // Popups
 var
@@ -109,7 +106,6 @@ map.on('pointermove', function(e) {
 let chartConfig = {
   type: 'hbullet',
   title: {
-    text: 'Installed wind power capacity in the Baltic Sea ( May 2018 )',
     fontColor: '#212121'
   },
   plot: {
