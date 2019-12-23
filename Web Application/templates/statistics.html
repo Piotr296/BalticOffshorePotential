@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid" style="margin-top:10px">
-  <div class="row">
+<div class="container-fluid full-height">
+  <div class="row full-height">
 
     <!-- Map -->
-    <div class="col-6">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-no-padding full-height">
       <div id="existing_farms_map" class="map"></div>
       <!-- Popups -->
       <div id="popup" class="ol-popup">
@@ -20,16 +20,11 @@
       </div>
     </div>
 
-    <!-- Downloading button -->
-    <div id="tools">
-      <a id="download" download="wind_farms.geojson">Download GeoJSON</a>
-    </div>
-
-    <!-- Sliders -->
-    <div class="col-6" align='center'>
-          <br>
-          <!--INTERACTIVE GRAPH-->
-          <div id="myChart" class="chart--container"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-no-padding full-height overflow-scroll" align="center">
+      <br>
+      <h4 id='title'>Installed wind power capacity in the Baltic Sea (May 2018)</h4>
+      <!--INTERACTIVE GRAPH-->
+      <div id="myChart" class="chart-container"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
     </div>
   </div>
 </div>
