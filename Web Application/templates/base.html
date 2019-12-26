@@ -1,5 +1,7 @@
-<!doctype html>
-<html lang="en">
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
 
   <head>
     <!-- Required meta tags -->
@@ -34,7 +36,7 @@
   <body>
     <!-- Menu  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+      <a class="navbar-brand" href="{{ url_for('main.index') }}">Home</a>
       <!-- The button tag is for when we change dimensions of the window, so as if there isn't enough space for all the tabs to be shown, the ''wrap'' inside a button-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -43,27 +45,43 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
+          {% if current_user.is_authenticated %}
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('bop') }}">BOP<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('main.bop') }}">BOP<span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('lcoe') }}">LCoE<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('main.lcoe') }}">LCoE<span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('statistics') }}">Statistics<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('main.statistics') }}">Statistics<span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('legislation') }}">Legislation<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url_for('main.legislation') }}">Legislation<span class="sr-only">(current)</span></a>
+          </li>
+          {% endif %}
+
+          {% if not current_user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('auth.login') }}">Login<span class="sr-only">(current)</span></a>
           </li>
 
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('auth.signup') }}">Sign Up<span class="sr-only">(current)</span></a>
+          </li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout<span class="sr-only">(current)</span></a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </nav>
 
-    <!-- Block body -->
+
     {% block body %} {% endblock %}
 
   </body>
