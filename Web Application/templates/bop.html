@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bop.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid full-height">
+  <div class="row full-height">
+
+    <!-- Map -->
+    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 col-no-padding full-height">
+      <div id="map" class="map">
+        <!-- Popups -->
+        <div id="popup" class="ol-popup">
+          <a id="popup-closer" class="ol-popup-closer"></a>
+          <div id="popup-content"></div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!-- Sliders -->
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 full-height overflow-y-scroll">
+      <div class="slidecontainer">
+        <br>
+        <h3 id='title'>Baltic Offshore Potential</h3>
+        <br>
+        <p id="desc">
+          You can choose the validity of the following criteria when deciding on the
+          location of an offshore wind farm. It was assumed that wind farms can only
+          be built up to a depth of 55 meters below sea level, and that ship
+          traffic above 3000 annually excludes this area from the potential
+          development of offshore wind farms. Protected areas and those located
+          too close to the shore have also been excluded. In other cases, you can choose the
+          importance of a given factor and its weight in the decision-making process.
+
+        </p>
+
+        <p class="sliders-title"><b>Sea depth</b></p>
+        <input type="range" min="0" max="10" value="5" class="slider" id="rangeBath">
+        <p class="sliders-bottom">Weight: <span id="outBath"></span>%</p>
+
+        <p class="sliders-title"'><b>Annual shipping density</b></p>
+        <input type="range" min="0" max="10" value="5" class="slider" id="rangeShip">
+        <p class="sliders-bottom">Weight: <span id="outShip"></span>%</p>
+
+        <p class="sliders-title"><b>Annual wind speed</b></p>
+        <input type="range" min="0" max="10" value="5" class="slider" id="rangeWind">
+        <p class="sliders-bottom">Weight: <span id="outWind"></span>%</p>
+
+        <!-- Commit Button -->
+        <button type="button" onclick="commitWeightFunction()" id="commitButton">Commit Weights</button>
+        <br>
+        <!-- Downloading button -->
+        <a href="static/geojson/output.geojson" download="output.geojson">Download GeoJSON</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Import JS -->
+  <script src="{{ url_for('static', filename='javascript/bop.js') }}"></script>
+</div>
+{% endblock %}
