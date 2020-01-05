@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "wind_farms",
+"name": "Statistics",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "ID": "DE46", "Name": "Arkona", "Country": "Germany", "Foundation": "Monopile", "Capacity": 385.0, "Lat": 54.783, "Lon": 14.121 }, "geometry": { "type": "Point", "coordinates": [ 14.121, 54.783 ] } },
@@ -10,6 +10,9 @@
 { "type": "Feature", "properties": { "ID": "DK07", "Name": "Nysted", "Country": "Denmark", "Foundation": "Gravity-Base", "Capacity": 165.6, "Lat": 54.55, "Lon": 11.715 }, "geometry": { "type": "Point", "coordinates": [ 11.715, 54.55 ] } },
 { "type": "Feature", "properties": { "ID": "DK11", "Name": "Rodsand 2", "Country": "Denmark", "Foundation": "Gravity-Base", "Capacity": 207.0, "Lat": 54.555, "Lon": 11.549 }, "geometry": { "type": "Point", "coordinates": [ 11.549, 54.555 ] } },
 { "type": "Feature", "properties": { "ID": "SE02", "Name": "Bockstigen", "Country": "Sweden", "Foundation": "Monopile", "Capacity": 3.3, "Lat": 57.036, "Lon": 18.147 }, "geometry": { "type": "Point", "coordinates": [ 18.147, 57.036 ] } },
-{ "type": "Feature", "properties": { "ID": "SE08", "Name": "Karehamn", "Country": "Sweden", "Foundation": "Gravity-Base", "Capacity": 48.0, "Lat": 56.985, "Lon": 17.02 }, "geometry": { "type": "Point", "coordinates": [ 17.02, 56.985 ] } }
+{ "type": "Feature", "properties": { "ID": "SE08", "Name": "Karehamn", "Country": "Sweden", "Foundation": "Gravity-Base", "Capacity": 48.0, "Lat": 56.985, "Lon": 17.02 }, "geometry": { "type": "Point", "coordinates": [ 17.02, 56.985 ] } },
+{ "type": "Feature", "properties": { "ID": "FI02", "Name": "Reposaaren", "Country": "Finland", "Foundation": "Gravity-Base", "Capacity": 2.3, "Lat": 61.625, "Lon": 21.353 }, "geometry": { "type": "Point", "coordinates": [ 21.353, 61.625 ] } },
+{ "type": "Feature", "properties": { "ID": "FI03", "Name": "Tahkoluoto", "Country": "Finland", "Foundation": "Gravity-Base", "Capacity": 42.0, "Lat": 61.629, "Lon": 21.354 }, "geometry": { "type": "Point", "coordinates": [ 21.354, 61.629 ] } },
+{ "type": "Feature", "properties": { "ID": "FI25", "Name": "Ajos", "Country": "Finland", "Foundation": "Artificial Island", "Capacity": 42.4, "Lat": 65.655, "Lon": 24.537 }, "geometry": { "type": "Point", "coordinates": [ 24.537, 65.655 ] } }
 ]
 }

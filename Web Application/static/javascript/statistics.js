@@ -2,7 +2,7 @@ var circle = new ol.style.Style({
   image: new ol.style.Circle({
     radius: 7,
     fill: new ol.style.Fill({
-      color: 'rgb(255, 216, 0)'
+      color: 'rgb(0, 255, 0)'
     }),
     stroke: new ol.style.Stroke({
       color: 'black',
@@ -39,7 +39,7 @@ var map = new ol.Map({
   layers: layers,
   view: new ol.View({
     center: ol.proj.fromLonLat([16.176330, 55.384652]),
-    zoom: 6
+    zoom: 5
   })
 });
 map.addControl(new ol.control.LayerSwitcher());

@@ -96,7 +96,7 @@ function commitWeightFunction() {
 
 
     features.forEach(function(feature){
-      if (feature.get("pareasmean") == 0.0 && feature.get("bufformean") == 0.0) {
+      if (feature.get("pareasmean") == 0.0 && feature.get("bufformean") == 0.0 && feature.get("realbathmean") > -50 ) {
         var new_fuzzy_value = (feature.get("bathmean") * sliderBath.value/10) + (feature.get("shipmean") * sliderShip.value/10) + (feature.get("windmean") * sliderWind.value/10)
         feature.set("fuzzyvalue", new_fuzzy_value)
         console.log("Done")
