@@ -5,10 +5,16 @@ body, html {
   width: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  background-image: url('http://gcsda.org/wp-content/uploads/2016/03/wind-turbine-1920x1080.jpg');
+  background-position: center center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
 }
 
 body {
   padding-top: 50px;
+  background-color: transparent;
 }
 
 .about-text {
