@@ -142,7 +142,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 Piotr Michalak - https://www.linkedin.com/in/michalak-gis - pmicha19@student.aau.dk
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: https://github.com/Piotr296/BalticOffshorePotential
 
 
 
