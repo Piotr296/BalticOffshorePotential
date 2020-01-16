@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The application was created by Piotr Michalak, Angelina
+The application was created by Piotr Michalak, Angelina Patsili, Olga Carmen-Steau and Fotis Kioutsioukis as a part of study project at Aalborg University in Copenhagen. The main aim of the project was to create a Web-GIS application with built-in multi-criteria decision system support for offshore wind farm industry. The result of our work was the fully functional Web-GIS application that allows the user to search for places with the highest suitability for potential offshore investments on the Baltic Sea. 
 
 ### Built With
 * [Python](https://www.python.org)
@@ -60,7 +60,7 @@ The application was created by Piotr Michalak, Angelina
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy use the following git command
+To get a local copy use the following git command:
 ```
 git clone https://github.com/Piotr296/BalticOffshorePotential.git
 ```
