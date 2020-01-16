@@ -195,7 +195,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [forks-url]: https://github.com/Piotr296/BalticOffshorePotential/network/members
 [stars-shield]: https://img.shields.io/github/stars/Piotr296/BalticOffshorePotential
 [stars-url]: https://github.com/Piotr296/BalticOffshorePotential/stargazers
-[issues-shield]: https://github.com/Piotr296/BalticOffshorePotential/issues
+[issues-shield]: https://img.shields.io/github/issues/Piotr296/BalticOffshorePotential
 [issues-url]: https://github.com/Piotr296/BalticOffshorePotential/issues
 [license-shield]: https://img.shields.io/github/license/Piotr296/BalticOffshorePotential
 [license-url]: https://github.com/Piotr296/BalticOffshorePotential/blob/master/LICENSE.txt
