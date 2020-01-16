@@ -60,12 +60,9 @@ The application was created by Piotr Michalak, Angelina
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
+To get a local copy use the following git command
+```
+git clone https://github.com/Piotr296/BalticOffshorePotential.git
 ```
 
 <!-- USAGE EXAMPLES -->
@@ -92,7 +89,7 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 <!-- LICENSE -->
-## Licens
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
