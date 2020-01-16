@@ -62,12 +62,13 @@ Of course, no one template will serve all projects since your needs may be diffe
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* [Python](https://www.python.org)
+* [JavaScript](https://www.javascript.com)
+* [HTML](https://www.w3.org)
+* [CSS](https://www.w3.org)
+* [OpenLayers](https://openlayers.org/)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -131,7 +132,7 @@ Contributions are what make the open source community such an amazing place to b
 
 
 <!-- LICENSE -->
-## License
+## Licens
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
@@ -139,8 +140,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Piotr Michalak - https://www.linkedin.com/in/michalak-gis - pmicha19@student.aau.dk
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
