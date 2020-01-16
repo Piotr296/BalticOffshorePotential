@@ -15,7 +15,7 @@
   <h3 align="center">Baltic Offshore Potential</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    WebGIS application with built-in multi-criteria decision support system
     <br />
     <br />
     <a href="https://baltic-offshore.herokuapp.com/">View Demo</a>
