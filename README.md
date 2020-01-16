@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Piotr296/BalticOffshorePotential">
-    <img src="images/BOP.png" alt="Logo" width="200" height="200">
+    <img src="images/BOP.png" alt="Logo" width="300" height="300">
   </a>
 
   <h3 align="center">Baltic Offshore Potential</h3>
@@ -17,14 +17,12 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://baltic-offshore.herokuapp.com/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Piotr296/BalticOffshorePotential/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Piotr296/BalticOffshorePotential/issues">Request Feature</a>
   </p>
 </p>
 
