@@ -39,7 +39,7 @@ var map = new ol.Map({
   target: 'existing_farms_map',
   layers: [grayOsmLayer, wind_farms],
   view: new ol.View({
-    center: ol.proj.fromLonLat([16.176330, 55.384652]),
+    center: ol.proj.fromLonLat([20.064049, 59.954122]),
     zoom: 5
   })
 });
