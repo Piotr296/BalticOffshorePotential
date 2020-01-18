@@ -38,13 +38,6 @@ var suitability = new ol.layer.Vector({
   style: classification_suitability
 });
 
-var layers = [
-  new ol.layer.Tile({
-    source: new ol.source.OSM()
-  }),
-  suitability
-]
-
 var grayOsmLayer = new ol.layer.Tile({
   source: new ol.source.OSM()
 });
