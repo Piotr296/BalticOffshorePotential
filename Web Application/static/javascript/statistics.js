@@ -20,12 +20,13 @@ var wind_farms = new ol.layer.Vector({
   style: circle
 });
 
-var layers = [
-  new ol.layer.Tile({
-    source: new ol.source.OSM()
-  }),
-  wind_farms
-]
+var grayOsmLayer = new ol.layer.Tile({
+  source: new ol.source.OSM()
+});
+
+grayOsmLayer.on('postcompose', function(event) {
+  greyscale(event.context);
+});
 
 var map = new ol.Map({
   controls: new ol.control.defaults({
@@ -36,14 +37,38 @@ var map = new ol.Map({
     new ol.control.ScaleLine()
   ]),
   target: 'existing_farms_map',
-  layers: layers,
+  layers: [grayOsmLayer, wind_farms],
   view: new ol.View({
-    center: ol.proj.fromLonLat([16.176330, 55.384652]),
+    center: ol.proj.fromLonLat([20.064049, 59.954122]),
     zoom: 5
   })
 });
+
 map.addControl(new ol.control.LayerSwitcher());
 
+// function applies greyscale to every pixel in canvas
+function greyscale(context) {
+  var canvas = context.canvas;
+  var width = canvas.width;
+  var height = canvas.height;
+  var imageData = context.getImageData(0, 0, width, height);
+  var data = imageData.data;
+  for (i = 0; i < data.length; i += 4) {
+    var r = data[i];
+    var g = data[i + 1];
+    var b = data[i + 2];
+    // CIE luminance for the RGB
+    var v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    // Show white color instead of black color while loading new tiles:
+    if (v === 0.0)
+      v = 255.0;
+    data[i + 0] = v; // Red
+    data[i + 1] = v; // Green
+    data[i + 2] = v; // Blue
+    data[i + 3] = 255; // Alpha
+  }
+  context.putImageData(imageData, 0, 0);
+};
 
 // Popups
 var
@@ -105,8 +130,10 @@ map.on('pointermove', function(e) {
 
 let chartConfig = {
   type: 'hbullet',
+  backgroundColor : 'transparent',
   title: {
-    fontColor: '#212121'
+    fontColor: '#c9bfbf' //
+    //backgroundColor : 'transparent'
   },
   plot: {
     tooltip: {
@@ -122,6 +149,7 @@ let chartConfig = {
     }
   },
   plotarea: {
+    backgroundColor : 'transparent',
     margin: '100 20 60 120' //top-right-bottom-left margins
   },
   scaleX: {
@@ -135,6 +163,7 @@ let chartConfig = {
     },
     label: {
       text: 'Countries',
+      fontColor: '#c9bfbf',
       offsetX: '-70px'
     }
   },
@@ -143,11 +172,13 @@ let chartConfig = {
       visible: false
     },
     label: {
-      text: 'Rated Power (maximum capacity) in MW'
+      text: 'Rated Power (maximum capacity) in MW',
+      fontColor: '#c9bfbf'
     }
   },
   labels: [{
       text: 'Denmark',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=8',
       offsetX: '-50px',
@@ -156,6 +187,7 @@ let chartConfig = {
     },
     {
       text: 'Estonia',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=7',
       offsetX: '-50px',
@@ -164,6 +196,7 @@ let chartConfig = {
     },
     {
       text: 'Finland',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=6',
       offsetX: '-50px',
@@ -172,6 +205,7 @@ let chartConfig = {
     },
     {
       text: 'Germany',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=5',
       offsetX: '-50px',
@@ -180,6 +214,7 @@ let chartConfig = {
     },
     {
       text: 'Latvia',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=4',
       offsetX: '-50px',
@@ -188,6 +223,7 @@ let chartConfig = {
     },
     {
       text: 'Lithuania',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=3',
       offsetX: '-50px',
@@ -196,6 +232,7 @@ let chartConfig = {
     },
     {
       text: 'Poland',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=2',
       offsetX: '-50px',
@@ -204,6 +241,7 @@ let chartConfig = {
     },
     {
       text: 'Russia',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=1',
       offsetX: '-50px',
@@ -212,6 +250,7 @@ let chartConfig = {
     },
     {
       text: 'Sweden',
+      fontColor: '#c9bfbf',
       backgroundImage: '',
       hook: 'scale:name=scale-x,index=0',
       offsetX: '-50px',
