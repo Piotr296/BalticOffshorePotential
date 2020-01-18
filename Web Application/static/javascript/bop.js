@@ -45,6 +45,14 @@ var layers = [
   suitability
 ]
 
+var grayOsmLayer = new ol.layer.Tile({
+  source: new ol.source.OSM()
+});
+
+grayOsmLayer.on('postcompose', function(event) {
+  greyscale(event.context);
+});
+
 var map = new ol.Map({
   controls: new ol.control.defaults({
     attributionOptions: {
@@ -54,7 +62,7 @@ var map = new ol.Map({
     new ol.control.ScaleLine()
   ]),
   target: 'map',
-  layers: layers,
+  layers: [grayOsmLayer, suitability],
   view: new ol.View({
     center: ol.proj.fromLonLat([20.064049, 59.954122]),
     zoom: 5
@@ -62,6 +70,30 @@ var map = new ol.Map({
 });
 
 map.addControl(new ol.control.LayerSwitcher());
+
+// function applies greyscale to every pixel in canvas
+function greyscale(context) {
+  var canvas = context.canvas;
+  var width = canvas.width;
+  var height = canvas.height;
+  var imageData = context.getImageData(0, 0, width, height);
+  var data = imageData.data;
+  for (i = 0; i < data.length; i += 4) {
+    var r = data[i];
+    var g = data[i + 1];
+    var b = data[i + 2];
+    // CIE luminance for the RGB
+    var v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    // Show white color instead of black color while loading new tiles:
+    if (v === 0.0)
+      v = 255.0;
+    data[i + 0] = v; // Red
+    data[i + 1] = v; // Green
+    data[i + 2] = v; // Blue
+    data[i + 3] = 255; // Alpha
+  }
+  context.putImageData(imageData, 0, 0);
+};
 
 // Range Sliders
 var sliderBath = document.getElementById("rangeBath");
