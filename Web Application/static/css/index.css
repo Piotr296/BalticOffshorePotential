@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
-body, html {
+body,
+html {
   height: 100%;
   width: 100%;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-image: url('http://gcsda.org/wp-content/uploads/2016/03/wind-turbine-1920x1080.jpg');
-  background-position: center center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-size: cover;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -24,4 +20,65 @@ body {
 #title {
   padding: 25px;
   text-align: center;
+}
+
+.banner {
+  background-image: url("http://gcsda.org/wp-content/uploads/2016/03/wind-turbine-1920x1080.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.banner .darken {
+  background: rgba(0, 0, 0, 0.6);
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.banner .container {
+  color: #fff;
+  position: relative;
+  font-weight: bolder;
+}
+
+.card-img-top-wrapper {
+  margin: 2rem;
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  overflow: hidden;
+}
+
+.card-sect img {
+  max-width: 30px;
+}
+
+.card {
+  border: none !important;
+}
+
+.card-sect {
+  margin-top: 1rem;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #212529;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+.texts p {
+  text-align: justify;
+}
+
+.col-md-6 img {
+  max-width: 100%;
+}
+
+.container--small {
+  max-width: 50% !important;
 }
