@@ -1,133 +1,262 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+  type="text/css"
+/>
+{% endblock %} {% block body %}
 
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" type="text/css">
-{% endblock %}
+<section class="py-5 banner">
+  <div class="darken"></div>
+  <div class="container container--small">
+    <h1>
+      Digital solution for finding suitable areas for building a wind farm in
+      the Baltic sea, using webGIS tools.
+    </h1>
+  </div>
+</section>
 
-{% block body %}
+<!-- Content section -->
+<section class="py-5">
+  <div class="container">
+    <h1>The Future of Energy</h1>
+    <p class="lead">Offshore Wind Energy</p>
+    <p>
+      Offshore wind energy is a clean and renewable energy obtained by taking
+      advantage of the force of the wind that is produced on the high seas,
+      where it reaches a higher and more constant speed than on land due to the
+      absence of barriers. In order to make the most of this resource,
+      mega-structures are installed that are seated on the seabed and equipped
+      with the latest technical innovations. Offshore wind power provided 0.3%
+      of global electricity supply in 2018, but the market has grown by almost
+      30% per year since 2010, second only to solar.
+    </p>
+  </div>
+</section>
+
+<!-- Content section -->
+<section class="py-5">
+  <div class="container texts">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../static/img/wind.jpg" />
+      </div>
+      <div class="col-md-6">
+        <h1>Cleaner Energy Greater Future</h1>
+        <p class="lead">
+          The biggest challenge of our days is the transition to a clean energy
+        </p>
+        <p>
+          In 2017, 45% of the energy needed in UE it was produced in the
+          European Union the rest of 55% it was imported from other countries.
+          In 2017 two thirds of imported energy in European Union was petroleum
+          followed by gas (26%) and fossil fuels (8%) “The stability of the EU’s
+          energy supply may be threatened if a high proportion of imports are
+          concentrated among relatively few external partners. In 2017, almost
+          two thirds of the extra-EU&#39;s crude oil imports came from Russia
+          (30 %), Norway (11 %), Iraq (8 %), Kazakhstan and Saudi Arabia (both
+          7 %). A similar analysis shows that more than three quarters of the
+          EU&#39;s imports of natural gas came from Russia (40 %), Norway (26 %)
+          and Algeria (11 %), while almost three quarters of solid fuel (mostly
+          coal) imports originated from Russia (39 %), Colombia and the United
+          States (17 % each). Among the EU states more than 80 % of energy
+          imports are petroleum products in Cyprus, Malta, Greece, Sweden and
+          Romania and more than a third is gas in Hungary, Austria, Italy and
+          Germany. More than 15 % of energy imports are solid fuels in Slovakia.
+        </p>
+        <p class="lead">
+          Wind power is the most efficient technology to produce energy in a
+          safe and environmentally sustainable manner: it has zero emissions,
+          local, inexhaustible, competitive and it creates wealth and jobs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="py-5">
   <div class="container">
-<h1>Digital solution for finding suitable areas for building a wind farm in the Baltic sea, using webGIS tools.</h1>
-</div>
+    <h1>About Us</h1>
+    <p class="lead">Our Goal is to create a better Future</p>
+    <p>
+      We are a group of people pationate about renewable industry and we set a
+      goal! To create a tool that people or Goverments will be able to use for
+      the benefit of this planet. The most important reason we focused on Wind
+      Energy is because it is practically everywhere on the planet, which
+      contributes to reducing energy imports and to creating wealth and local
+      employment. Producing electricity through wind energy and its efficient
+      use contributes to sustainable development.
+    </p>
+    <p>
+      In 2018 Europe connected 409 new offshore wind turbines to the grid across
+      18 projects. This brought 2,649 MW of net additional capacity. Europe now
+      has a total installed offshore wind capacity of 18,499 MW. This
+      corresponds to 4,543 grid-connected wind turbines across 11 countries.
+      Separately, twelve new offshore wind projects reached Final Investment
+      Decision (FID) in 2018. Investments in new assets amounted to €10.3bn.
+      This financed 4.2 GW of additional capacity, which will come on line in
+      the next couple of years.
+    </p>
+  </div>
+</section>
 
-<!-- Content section -->
-  <section class="py-5">
-    <div class="container">
-      <h1>The Future of Energy</h1>
-      <p class="lead">Offshore Wind Energy</p>
-      <p>Offshore wind energy is a clean and renewable energy obtained by taking advantage of the force of
-        the wind that is produced on the high seas, where it reaches a higher and more constant speed than on
-        land due to the absence of barriers. In order to make the most of this resource, mega-structures are
-        installed that are seated on the seabed and equipped with the latest technical innovations.
-        Offshore wind power provided 0.3% of global electricity supply in 2018, but the market has grown by
-        almost 30% per year since 2010, second only to solar.</p>
-    </div>
-  </section>
-
-  <!-- Content section -->
-  <section class="py-5">
-    <div class="container">
-      <h1>Cleaner Energy Greater Future</h1>
-      <p class="lead">The biggest challenge of our days is the transition to a clean energy</p>
-      <p>In 2017, 45% of the energy needed in UE it was produced in the European Union the rest of 55% it
-        was imported from other countries.
-        In 2017 two thirds of imported energy in European Union was petroleum followed by gas (26%) and
-        fossil fuels (8%)
-        “The stability of the EU’s energy supply may be threatened if a high proportion of imports are
-        concentrated among relatively few external partners. In 2017, almost two thirds of the extra-EU&#39;s
-        crude oil imports came from Russia (30 %), Norway (11 %), Iraq (8 %), Kazakhstan and Saudi Arabia
-        (both 7 %). A similar analysis shows that more than three quarters of the EU&#39;s imports of natural gas
-        came from Russia (40 %), Norway (26 %) and Algeria (11 %), while almost three quarters of solid
-        fuel (mostly coal) imports originated from Russia (39 %), Colombia and the United States (17 %
-        each).
-        Among the EU states more than 80 % of energy imports are petroleum products in Cyprus, Malta,
-        Greece, Sweden and Romania and more than a third is gas in Hungary, Austria, Italy and Germany.
-        More than 15 % of energy imports are solid fuels in Slovakia.</p>
-        <p class="lead">Wind power is the most efficient technology to produce energy in a safe and environmentally sustainable manner:
-        it has zero emissions, local, inexhaustible, competitive and it creates wealth and jobs. </p>
-
-    </div>
-  </section>
-
-  <section class="py-5">
-    <div class="container">
-      <h1>About Us</h1>
-      <p class="lead">Our Goal is to create a better Future</p>
-      <p>We are a group of people pationate about renewable industry and we set a goal! To create a tool that people or Goverments will be able to use for the benefit of this planet.
-        The most important reason we focused on Wind Energy is because it is practically everywhere on the planet, which contributes to reducing energy imports and to creating wealth
-        and local employment. Producing electricity through wind energy and its efficient use contributes to sustainable development.</p>
-        <p> In 2018 Europe connected 409 new offshore wind turbines to the grid across 18 projects. This brought 2,649 MW of net additional capacity. Europe now has a total installed offshore wind capacity of 18,499 MW. This corresponds to 4,543 grid-connected
-        wind turbines across 11 countries. Separately, twelve new offshore wind projects reached Final Investment Decision (FID) in 2018. Investments in new assets amounted to €10.3bn. This financed 4.2 GW of additional capacity, which will come on line in
-        the next couple of years.</p>
-    </div>
-  </section>
-
-  <section class="py-5">
-      <div class="container">
-        <h1><center>Contact Us</center></h1>
-  	</div>
-      <div class="card-group">
-  		<div class="card">
-  				<img class="card-img-top" src="..." alt="Card image cap">
-  			<div class="card-body">
-  					<h5 class="card-title">Piotr</h5>
-  				<p class="card-text"> action.</p>
-  				<h4 class="pt-2">Contact</h4>
-  				<i class="fab fa-whatsapp" style="color:#000"></i><a href="tel:+"> 123456 </a><br>
-  				<h4 class="pt-2">Email</h4>
-  				<i class="fa fa-envelope" style="color:#000"></i> <a href="">test@test.com</a><br>
-  				<a href="#" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i>LinkedIn</a>
-  				<p class="card-text"><small class="text-muted">Group 2</small></p>
-  			</div>
-  		</div>
-  		<div class="card">
-  				<img class="card-img-top" src="..." alt="Card image cap">
-  			<div class="card-body">
-  				<h5 class="card-title">Angelina Patsili</h5>
-  				<p class="card-text"> MSc student in GeoInformatics at Aalborg University</p>
-  				<h4 class="pt-2">Contact</h4>
-  				<i class="fab fa-whatsapp" style="color:#000"></i><a href="tel:+"> +45 52826021 </a><br>
-  				<h4 class="pt-2">Email</h4>
-  				<i class="fa fa-envelope" style="color:#000"></i> <a href="">angel.patsili@gmail.com</a><br>
-  				<a href="https://www.linkedin.com/in/angelina-patsili-b29505127" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i>LinkedIn</a>
-  				<p class="card-text"><small class="text-muted">Group 2</small></p>
-  			</div>
-  		</div>
-  		<div class="card">
-  			<img class="card-img-top" src="..." alt="Card image cap">
-  				<div class="card-body">
-  				<h5 class="card-title">Olga Carmen Steau</h5>
-  				<p class="card-text">  MSc student in GeoInformatics at Aalborg University</p>
-  				<h4 class="pt-2">Contact</h4>
-  				<i class="fa fa-whatsapp" style="color:#000"></i><a href="tel:+"> +45 22189480 </a><br>
-  				<h4 class="pt-2">Email</h4>
-  				<i class="fa fa-envelope" style="color:#000"></i> <a href="">olgacarmensteau@gmail.com</a><br>
-  				<a href="https://www.linkedin.com/in/olga-carmen-steau-10323364/" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-3x"></i>LinkedIn</a>
-  				<p class="card-text"><small class="text-muted">Group 2</small></p>
-  			</div>
-  		</div>
-  		<div class="card">
-  			<img class="card-img-top" src="" alt="Card image">
-  			<div class="card-body">
-  				<h5 class="card-title">Fotios Kioutsioukis</h5>
-  				<p class="card-text"> MSc student in GeoInformatics at Aalborg University</p>
-  				<h4 class="pt-2">Contact</h4>
-  				<i class="fab fa-whatsapp" style="color:#000"></i><a href="tel:+"> +45 714 94 822 </a><br>
-  				<h4 class="pt-2">Email</h4>
-  				<i class="fa fa-envelope" style="color:#000"></i> <a href="">Fotis_q@msn.com</a><br>
-  				<a href="https://www.linkedin.com/in/fotios-kioutsioukis-a6706678/" title="LinkedIn" class="btn btn-linkedin btn-lg"><i class="fa fa-linkedin fa-fw"></i>LinkedIn</a>
-  				<p class="card-text"><small class="text-muted">Group 2</small></p>
-  			</div>
-  		</div>
-  	</div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; 2020 AAU GeoInfo G2</p>
+<section class="py-5">
+  <div class="container">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="card-group container">
+    <div class="card">
+      <div class="card-img-top-wrapper">
+        <img
+          class="card-img-top"
+          src="../static/img/fotis.jpg"
+          alt="Card image cap"
+        />
       </div>
+      <div class="card-body">
+        <h3 class="card-title">Piotr</h3>
+        <p class="card-text">action.</p>
+        <h4 class="mt-4">Contact</h4>
+        <div class="card-sect">
+          <img src="../static/img/tel.png" />
+          <i class="fab fa-whatsapp" style="color:#000"></i
+          ><a href="tel:+123456"> 123456 </a><br />
+        </div>
 
+        <div class="card-sect">
+          <img src="../static/img/mail.png" />
+          <a href="mailto:test@test.com">test</a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/in.png" />
+          <a href="#" title="LinkedIn">LinkedIn</a>
+        </div>
+        <!-- <p class="card-text"><small class="text-muted">Group 2</small></p> -->
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img-top-wrapper">
+        <img
+          class="card-img-top"
+          src="../static/img/fotis.jpg"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Angelina Patsili</h3>
+        <p class="card-text">
+          MSc student in GeoInformatics at Aalborg University
+        </p>
+        <h4 class="mt-4">Contact</h4>
+        <div class="card-sect">
+          <img src="../static/img/tel.png" />
+          <i class="fab fa-whatsapp" style="color:#000"></i
+          ><a href="tel:+4552826021"> +4552826021 </a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/mail.png" />
+          <a href="mailto:angel.patsili@gmail.com">angel.patsili</a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/in.png" />
+          <a
+            href="https://www.linkedin.com/in/angelina-patsili-b29505127"
+            title="LinkedIn"
+            >LinkedIn</a
+          >
+        </div>
+        <!-- <p class="card-text"><small class="text-muted">Group 2</small></p> -->
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img-top-wrapper">
+        <img
+          class="card-img-top"
+          src="../static/img/olga.jpg"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Olga Carmen Steau</h3>
+        <p class="card-text">
+          MSc student in GeoInformatics at Aalborg University
+        </p>
+        <h4 class="mt-4">Contact</h4>
+        <div class="card-sect">
+          <img src="../static/img/tel.png" />
+          <i class="fa fa-whatsapp" style="color:#000"></i
+          ><a href="tel:+4522189480"> +45 22189480 </a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/mail.png" /><a
+            href="mailto:olgacarmensteau@gmail.com"
+          >
+            olgacarmensteau</a
+          ><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/in.png" />
+          <a
+            href="https://www.linkedin.com/in/olga-carmen-steau-10323364/"
+            title="LinkedIn"
+            >LinkedIn</a
+          >
+          <!-- <p class="card-text"><small class="text-muted">Group 2</small></p> -->
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img-top-wrapper">
+        <img
+          class="card-img-top"
+          src="../static/img/fotis.jpg"
+          alt="Card image"
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Fotios Kioutsioukis</h3>
+        <p class="card-text">
+          MSc student in GeoInformatics at Aalborg University
+        </p>
+        <h4 class="mt-4">Contact</h4>
+        <div class="card-sect">
+          <img src="../static/img/tel.png" />
+          <a href="tel:+4571494822"> +4571494822 </a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/mail.png" />
+          <a href="mailto:Fotis_q@msn.com">Fotis_q</a><br />
+        </div>
+
+        <div class="card-sect">
+          <img src="../static/img/in.png" />
+          <a
+            href="https://www.linkedin.com/in/fotios-kioutsioukis-a6706678/"
+            title="LinkedIn"
+            >LinkedIn</a
+          >
+        </div>
+        <!-- <p class="card-text"><small class="text-muted">Group 2</small></p>
+                                        <a href="#">
+                                          <i class="fab fa-twitter"></i>
+                                        </a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">
+      Copyright &copy; 2020 AAU GeoInfo G2
+    </p>
+  </div>
+</footer>
 {% endblock %}
