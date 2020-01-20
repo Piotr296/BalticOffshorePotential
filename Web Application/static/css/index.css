@@ -11,74 +11,48 @@ html {
 body {
   padding-top: 50px;
   background-color: transparent;
-}
-
-.about-text {
-  padding: 25px;
-}
-
-#title {
-  padding: 25px;
-  text-align: center;
+  color: white;
 }
 
 .banner {
-  background-image: url("http://gcsda.org/wp-content/uploads/2016/03/wind-turbine-1920x1080.jpg");
-  background-position: center center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img/Baner.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 40%;
 }
-.banner .darken {
-  background: rgba(0, 0, 0, 0.6);
-  min-width: 100%;
-  min-height: 100%;
+
+.banner-text{
+  text-align: center;
   position: absolute;
-  left: 0;
-  top: 0;
-}
-.banner .container {
-  color: #fff;
-  position: relative;
-  font-weight: bolder;
-}
-
-.card-img-top-wrapper {
-  margin: 2rem;
-  border-radius: 50%;
-  border: 5px solid #ccc;
-  overflow: hidden;
-}
-
-.card-sect img {
-  max-width: 30px;
-}
-
-.card {
-  border: none !important;
-}
-
-.card-sect {
-  margin-top: 1rem;
-}
-
-.card-title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
   font-weight: bold;
-  color: #212529;
 }
 
-.card-text {
-  color: #6c757d;
+.row {
+  margin: 2rem;
 }
 
-.texts p {
+.column-text {
+  padding: 20px;
+  background-color: #2A385D;
+  transition: 1s;
+}
+
+.column-text > p {
   text-align: justify;
 }
 
-.col-md-6 img {
-  max-width: 100%;
+.column-text:hover {
+  background-color: #2B63AD;
 }
 
-.container--small {
-  max-width: 50% !important;
+.img-contact {
+  border-radius: 50%;
+  width: 20%;
+  height: 20%;
 }

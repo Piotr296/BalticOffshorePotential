@@ -115,7 +115,7 @@ map.on('click', function(evt){
     });
     if (feature) {
         // Show us the property of the feature
-        var content = '<p>' + 'LCoE/Turbine: ' + feature.get('EUR/MWh').toFixed(2).toString() + 'EUR' +'</p>';
+        var content = '<p>' + 'Revenue: ' + feature.get('EUR/MWh').toFixed(2).toString() + 'EUR/MWh' +'</p>';
         content += '<p>' + 'Distance from shore: ' + feature.get('Distance').toFixed(2).toString() + 'km' +'</p>';
         content_element.innerHTML = content;
         overlay.setPosition(evt.coordinate);

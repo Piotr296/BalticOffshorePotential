@@ -16,6 +16,8 @@
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <!-- Import fonts  -->
     <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap CSS & JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -27,6 +29,7 @@
     <script src="{{ url_for('static', filename='ol/ol.js') }}"></script>
     <script src="https://unpkg.com/ol-layerswitcher@3.0.0"></script>
     <link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.0.0/src/ol-layerswitcher.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" type="text/css">
 
     {% block head %} {% endblock %}
 
@@ -84,6 +87,13 @@
 
     {% block body %} {% endblock %}
 
+    <footer>
+      © 2020 Baltic Offshore Potential
+      <a href="mailto:pmicha19@student.aau.dk" class="fa fa-google fa-2x"></a>
+      <a href="https://www.facebook.com/Geoinformatic-584251092050000" class="fa fa-facebook fa-2x"></a>
+      <a href="https://www.linkedin.com/in/piotr-michalak-gis/" class="fa fa-linkedin fa-2x"></a>
+      <a href="https://github.com/Piotr296/BalticOffshorePotential" class="fa fa-github fa-2x"></a>
+    </footer>
   </body>
 
 </html>
