@@ -68,8 +68,7 @@ git clone https://github.com/Piotr296/BalticOffshorePotential.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-TODO
-
+The tool has been examined and indicates the same areas as are considered by the governments of countries such as Poland, Sweden or Finland. Baltic Offshore Potential can help identify the most suitable places to establish the new offshore wind farms in the Baltic Sea with respective accuracy. Our product aims to reduce the time needed to search for new areas for wind farms, indicating areas with the greatest potential, which however, should be supported by detailed geotechnical and environmental research.
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -100,7 +99,9 @@ Piotr Michalak - https://www.linkedin.com/in/michalak-gis - pmicha19@student.aau
 
 Olga Carmen Steau -https://www.linkedin.com/in/olga-carmen-steau-10323364/ - osteau19@student.aau.dk
 
-Angelina Patsili - https://www.linkedin.com/in/angelina-patsili-b29505127/ - angel.patsili@gmail.com
+Angelina Patsili - https://www.linkedin.com/in/angelina-patsili-b29505127/ - apatsi19@student.aau.dk
+
+Fotios - https://www.linkedin.com/in/fotios-kioutsioukis-a6706678/ - fkiout19@student.aau.dk
 
 Project Link: https://github.com/Piotr296/BalticOffshorePotential
 
