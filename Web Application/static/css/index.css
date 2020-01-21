@@ -41,6 +41,8 @@ body {
   padding: 20px;
   background-color: #343a40;
   transition: 1s;
+  width: 100%;
+  height: 100%;
 }
 
 .column-text > p {
