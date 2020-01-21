@@ -68,7 +68,7 @@ git clone https://github.com/Piotr296/BalticOffshorePotential.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-TODO
+<img src="images/Home.jpg" alt="Logo" width="800" height="800">
 
 
 <!-- ROADMAP -->
