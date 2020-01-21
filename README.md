@@ -100,7 +100,9 @@ Piotr Michalak - https://www.linkedin.com/in/michalak-gis - pmicha19@student.aau
 
 Olga Carmen Steau -https://www.linkedin.com/in/olga-carmen-steau-10323364/ - osteau19@student.aau.dk
 
-Angelina Patsili - https://www.linkedin.com/in/angelina-patsili-b29505127/ - angel.patsili@gmail.com
+Angelina Patsili - https://www.linkedin.com/in/angelina-patsili-b29505127/ - apatsi19@student.aau.dk
+
+Fotios - https://www.linkedin.com/in/fotios-kioutsioukis-a6706678/ - fkiout19@student.aau.dk
 
 Project Link: https://github.com/Piotr296/BalticOffshorePotential
 
