@@ -57,3 +57,27 @@ body {
   width: 15%;
   height: 15%;
 }
+
+h4{
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  color: black;
+}
+
+.fa {
+  padding: 30px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  color:  white;
+  float: right;
+}
+.fa:hover {
+ opacity: 0.7;
+}
