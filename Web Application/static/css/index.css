@@ -15,7 +15,7 @@ body {
 }
 
 .banner {
-  background-image: linear-gradient(rgba(176, 161, 186, 0.5), rgba(191, 240, 212, 0.5)), url("/static/img/Baner.jpg");
+  background-image: linear-gradient(rgba(176, 161, 186, 0.5), rgba(191, 240, 212, 0.5)), url("/static/img/baner.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
